@@ -17,6 +17,17 @@
   },
   "homepage": "https://github.com/nikoladupreez/travel-app-project#readme",
   "dependencies": {
-    "ironhack_generator": "^1.2.0"
+    "bcrypt": "^3.0.6",
+    "cookie-parser": "^1.4.4",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "hbs": "^4.0.5",
+    "http-errors": "^1.7.3",
+    "ironhack_generator": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.7.3",
+    "morgan": "^1.9.1",
+    "path": "^0.12.7"
   }
 }
