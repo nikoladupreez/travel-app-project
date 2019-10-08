@@ -1,20 +1,18 @@
- 
- <ul id='dropdown' class='hamburger-content'>
-    <li><a href='/'>Home</a></li>
-    <li><a href='/about'>About us</a></li>
-    <li><a href='/contact'>Contact</a></li>
-    <li id='profile'><a href='/profile'>Profile</a></li>
-    <li id='explore'><a href='/explore'>Explore</a></li>
-    <li id='login'><a href='/login'>Login</a></li>
-    <li id='signup'><a href='/signup'>Sign up</a></li>
-    <li id='logout'><a href='/'>Logout</a></li>
-</ul>
 <nav>
     <div id='nav-wrapper'>
-        <img src="/images/OnTrack-logo.png" alt="logo">
-        <ul>
-            <li id='hamburger'><a href="#!" data-target='dropdown'><i class="fas fa-bars"></i></a></li>
-        </ul>
+        <img src="/images/OnTrack-logo.png" alt="logo" id='logo'>
+        <div id='dropdown'>
+            <button id='hamburger'><img src="/images/hamburger.png" alt="menu" id='hamburger'></button>
+            <div id='dropdown-content'>
+                <a href="/">Home</a>
+                <a href="/about">About us</a>
+                <a href="/contact">Contact</a>
+                <a href="/profile">Profile</a>
+                <a href="/explore">Explore</a>
+                <a href="/login">Login</a>
+                <a href="/signup">Sign up</a>
+                <a href="/">Logout</a>
+            </div>
+        </div>
     </div>
 </nav>
-
