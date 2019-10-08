@@ -6,8 +6,8 @@
             <p>Track your journeys, explore the world and follow other traveler</p>
         </div>
         <div id='auth-box'>
-            <button>Sign up</button>
-            <p>Already a member?<span class='login-link'>Login</span></p>
+            <a href='#' id='signup-btn-1'>Sign up</a>  {{!--Add eventlistener on click, open signup view--}}
+            <p>Already a member? <span class='link' id='login-1'>Login</span></p>     {{!--Add eventlistener on click, open login view--}}
         </div>
     </div>
 
@@ -18,15 +18,17 @@
             </div>
             <h1>HI THERE</h1>
             <h1>STRANGER!</h1>
-            <form action="/" method='POST'> {{!-- Fill in route details && Front end validation --}}
+            <form action="/" method='POST' id='signup-form'> {{!-- Fill in route details && Front end validation --}}
                 <input type="text" name='firstname' placeholder='Firstname' class='input'>
                 <input type="text" name='lastname' placeholder='Lastname' class='input'>
                 <input type="email" name='email' placeholder='Email' class='input'>
                 <input type="text" name='username' placeholder='Username' class='input'>
                 <input type="password" name='password' placeholder='Password' class='input'>
-                <button type='submit' id='signup-btn'>START YOUR JOURNEY</button>
+                <div class='btn-box'>
+                     <button type='submit' id='start-btn'>START YOUR JOURNEY</button>
+                </div>
             </form> 
-              <p>Already a member?<span class='login-link'>Login</span></p>
+              <p>Already a member? <span class='link' id='login-2'>Login</span></p>     {{!--Add eventlistener on click, open login view--}}
         </div>
     </div>
 
@@ -50,13 +52,13 @@
                 <i class='close-btn'></i>
             </div>
             <h1>WELCOME BACK!</h1>
-            <form action="/" method='POST'> {{!-- Fill in route details && Front end validation --}}
+            <form action="/" method='POST' id='login-form'> {{!-- Fill in route details && Front end validation --}}
                 <input type="text" name='username' placeholder='Username' class='input'>
                 <input type="password" name='password' placeholder='Password' class='input'>
                 <button type='submit' id='login-btn'>LOGIN</button>
             </form> 
-              <p>Already a member?<span class='login-link'>Login</span></p>
-              <p>Forgot your username or password?<span class='reset-link'>Reset here</span></p>
+              <p>Already a member? <a class='link'>Login</a></p>
+              <p>Forgot your username or password? <span class='link'>Reset here</span></p>
         </div>
     </div>
 
@@ -70,7 +72,7 @@
                 <input type="email" name='email' placeholder='Email' class='input'>
                 <label for="username">Forgot your password? Fill in your username.</label>
                 <input type="password" name='password' placeholder='Password' class='input'>
-                <button type='submit' id='login-btn'>SEND</button>
+                <button type='submit' id='send-btn'>SEND</button>
             </form> 
         </div>
     </div>
@@ -92,7 +94,7 @@
             <h1>RESET USERNAME</h1>
             <form action="/" method='POST'> {{!-- Fill in route details && Front end validation --}}
                 <input type="text" name='username' placeholder='Username' class='input'>
-                <button type='submit' id='reset-btn'>CHANGE</button>
+                <button type='submit' class='reset-btn'>CHANGE</button>
             </form> 
         </div>
         <div id='password-reset'>
@@ -102,7 +104,7 @@
             <h1>RESET PASSWORD</h1>
             <form action="/" method='POST'> {{!-- Fill in route details && Front end validation --}}
                 <input type="password" name='password' placeholder='Password' class='input'>
-                <button type='submit' id='reset-btn'>CHANGE</button>
+                <button type='submit' class='reset-btn'>CHANGE</button>
             </form> 
         </div>
     </div>
