@@ -6,6 +6,10 @@ const transporter = require("../../mailer/mailer");
 var createError = require('http-errors');
 var jwt = require('jsonwebtoken');
 
+router.get("/signup", (req,res)=> {
+    res.render("auth/signup");
+})
+
 router.post("/signup", (req,res)=> {
     User.findOne({$or: [{username: req.body.username, email: req.body.email}]})
         .then((user)=> {
@@ -43,9 +47,5 @@ router.post("/signup", (req,res)=> {
             }
         })
     })   
-
-router.get("/signup", (req,res)=> {
-    res.render("auth/signup");
-})
 
 module.exports = router;

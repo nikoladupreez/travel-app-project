@@ -1,122 +1,14 @@
-<section id='index-container'>
+<section class='index-container'>
     <div id='home-view'>
         <div id='title-box'>
-            <h2>FIND YOUR INNER</h2>
-            <h1>Wanderer</h1>
-            <p>Track your journeys, explore the world and follow other traveler</p>
+            <h2 id='subtitle'>FIND YOUR INNER</h2>
+            <h1 id='title'>Wanderer</h1>
+            <p id='paraf'>Track your journeys, explore the world and follow other traveler</p>
         </div>
         <div id='auth-box'>
-            <a href='#' id='signup-btn-1'>Sign up</a>  {{!--Add eventlistener on click, open signup view--}}
-            <p>Already a member? <span class='link' id='login-1'>Login</span></p>     {{!--Add eventlistener on click, open login view--}}
+            <a href='/signup' class='signup btn'>Sign up</a>  
+            <p class='paraf-link'>Already a member? <a class='login link'>Login</a></p>     
         </div>
     </div>
-
-     <div id='signup-view'>
-        <div id='signup-box'>
-            <div>
-                <i class='close-btn'></i>
-            </div>
-            <h1>HI THERE</h1>
-            <h1>STRANGER!</h1>
-            <form action="/" method='POST' id='signup-form'> {{!-- Fill in route details && Front end validation --}}
-                <input type="text" name='firstname' placeholder='Firstname' class='input'>
-                <input type="text" name='lastname' placeholder='Lastname' class='input'>
-                <input type="email" name='email' placeholder='Email' class='input'>
-                <input type="text" name='username' placeholder='Username' class='input'>
-                <input type="password" name='password' placeholder='Password' class='input'>
-                <div class='btn-box'>
-                     <button type='submit' id='start-btn'>START YOUR JOURNEY</button>
-                </div>
-            </form> 
-              <p>Already a member? <span class='link' id='login-2'>Login</span></p>     {{!--Add eventlistener on click, open login view--}}
-        </div>
-    </div>
-
-    <div id='confirm-signup-view'>
-        <div class='confirm-box'>
-            <div>
-                <i class='close-btn'></i>
-            </div>
-            <div id='confirm-slogan'>
-                <h1>LET THE</h1>
-                <h1>Adventures</h1>
-                <h1>BEGIN!</h1>
-            </div>
-              <p>You've got mail! Confirm your email to login.</p>
-        </div>
-    </div>
-
-    <div id='login-view'>
-        <div id='login-box'>
-            <div>
-                <i class='close-btn'></i>
-            </div>
-            <h1>WELCOME BACK!</h1>
-            <form action="/" method='POST' id='login-form'> {{!-- Fill in route details && Front end validation --}}
-                <input type="text" name='username' placeholder='Username' class='input'>
-                <input type="password" name='password' placeholder='Password' class='input'>
-                <button type='submit' id='login-btn'>LOGIN</button>
-            </form> 
-              <p>Already a member? <a class='link'>Login</a></p>
-              <p>Forgot your username or password? <span class='link'>Reset here</span></p>
-        </div>
-    </div>
-
-     <div id='reset-view'>
-        <div id='login-box'>
-            <div>
-                <i class='close-btn'></i>
-            </div>
-             <form action="/" method='POST'> {{!-- Fill in route details && Front end validation --}}
-                <label for="email">Forgot your username? Fill in your email.</label>
-                <input type="email" name='email' placeholder='Email' class='input'>
-                <label for="username">Forgot your password? Fill in your username.</label>
-                <input type="password" name='password' placeholder='Password' class='input'>
-                <button type='submit' id='send-btn'>SEND</button>
-            </form> 
-        </div>
-    </div>
-
-    <div id='send-reset-view'>
-        <div class='confirm-box'>
-            <div>
-                <i class='close-btn'></i>
-            </div>
-              <p>You've got mail! Reset your credentials with the reset link.</p>
-        </div>
-    </div>
-
-     <div id='input-reset-view'>
-        <div id='username-reset'>
-            <div>
-                <i class='close-btn'></i>
-            </div>
-            <h1>RESET USERNAME</h1>
-            <form action="/" method='POST'> {{!-- Fill in route details && Front end validation --}}
-                <input type="text" name='username' placeholder='Username' class='input'>
-                <button type='submit' class='reset-btn'>CHANGE</button>
-            </form> 
-        </div>
-        <div id='password-reset'>
-            <div>
-                <i class='close-btn'></i>
-            </div>
-            <h1>RESET PASSWORD</h1>
-            <form action="/" method='POST'> {{!-- Fill in route details && Front end validation --}}
-                <input type="password" name='password' placeholder='Password' class='input'>
-                <button type='submit' class='reset-btn'>CHANGE</button>
-            </form> 
-        </div>
-    </div>
-
-    <div id='confirm-reset-view'>
-        <div class='confirm-box'>
-            <div>
-                <i class='close-btn'></i>
-            </div>
-              <p>Your credentials have been reset!</p>
-              <button class='login-link'>GO TO LOGIN</button>
-        </div>
-    </div>    
 </section>
 

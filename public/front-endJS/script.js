@@ -1,10 +1,3 @@
-//navbar, dropdown haburger:
-//https://materializecss.com/navbar.html
-document.addEventListener('ready', () => {
-    let hamburgerElement = document.getElementById('hamburger');
-    hamburgerElement.dropdown();
-})
-
 //slideshow-dots
 //https://www.w3schools.com/howto/howto_js_slideshow.asp
 let slideIndex = 1;
