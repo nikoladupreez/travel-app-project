@@ -1,16 +1,16 @@
 const express = require("express");
-const router = express.Router();
+const app = express();
 const bcrypt = require("bcrypt");
-const User = require("../models/user");
-const transporter = require("../mailer/mailer");
+const User = require("../../models/user");
+const transporter = require("../../mailer/mailer");
 var createError = require('http-errors');
 var jwt = require('jsonwebtoken');
 
-router.get("/signup", (req,res)=> {
+app.get("/signup", (req,res)=> {
     res.render("auth/signup");
 })
 
-router.post("/signup", (req,res)=> {
+app.post("/signup", (req,res)=> {
     User.findOne({$or: [{username: req.body.username, email: req.body.email}]})
         .then((user)=> {
             if(user) res.send("User with this email or username already exists")
@@ -22,7 +22,8 @@ router.post("/signup", (req,res)=> {
                             username: req.body.username,
                             password: hash,
                             email: req.body.email,
-                            name: req.body.firstname
+                            firstname: req.body.firstname,
+                            lastname: req.body.lastname
                         })
                         .then((user)=> {
                             transporter.sendMail({
@@ -48,7 +49,7 @@ router.post("/signup", (req,res)=> {
         })
     })   
 
-router.post("/login", (req,res)=> {
+app.post("/login", (req,res)=> {
     User.findOne({username: req.body.username})
         .then((user)=> {
             if(!user) res.json({loggedIn: false}) // this is different
@@ -68,16 +69,16 @@ router.post("/login", (req,res)=> {
         })
 })
 
-router.get("/login", (req,res)=> {
+app.get("/login", (req,res)=> {
     res.render("auth/login");
 })
 
-router.get("/logout", (req, res)=> {
+app.get("/logout", (req, res)=> {
     req.session.destroy();
     res.redirect("/");
 })
 
-router.post("/email-availability", (req,res)=> {
+app.post("/email-availability", (req,res)=> {
     User.findOne({email: req.body.email})
         .then((user)=> {
             if(user)res.json({available: false})
@@ -85,11 +86,11 @@ router.post("/email-availability", (req,res)=> {
         })
 })
 
-router.get("/get-reset-link", (req,res)=> {
+app.get("/get-reset-link", (req,res)=> {
     res.render("auth/reset-link")
 })
 
-router.post("/get-reset-link", (req,res)=> {
+app.post("/get-reset-link", (req,res)=> {
     jwt.sign({email: req.body.email}, process.env.jwtSecret, { expiresIn: 60 * 60 }, function(err, token){
         transporter.sendMail({
             from: '"OnTrack" <Ontrack-ironhack@gmail.com>', // sender address
@@ -107,15 +108,15 @@ router.post("/get-reset-link", (req,res)=> {
     })
 })
 
-router.get("/reset-username", (req,res)=> {
+app.get("/reset-username", (req,res)=> {
     res.render("auth/reset-username", {token: req.query.token})
 })
 
-router.get("/reset-password", (req,res)=> {
+app.get("/reset-password", (req,res)=> {
     res.render("auth/reset-password", {token: req.query.token})
 })
 
-router.post("/reset-password", (req,res)=> {
+app.post("/reset-password", (req,res)=> {
     jwt.verify(req.body.token, process.env.jwtSecret, function(err, token){
         if(err) res.send(err)
         bcrypt.hash(req.body.password, 10, function(err, hash){
@@ -133,4 +134,4 @@ router.post("/reset-password", (req,res)=> {
     })
 })
 
-module.exports = router;
+module.exports = app;

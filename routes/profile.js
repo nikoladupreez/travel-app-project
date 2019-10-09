@@ -3,8 +3,7 @@ var app = express();
 
 /* GET profile page. */
 app.get('/', function(req, res, next) {
-  debugger
-  let arr = ["dg", "hfkl"]
+  let arr = res.
   res.render('profile', {arr});
 });
 

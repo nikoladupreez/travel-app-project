@@ -40,15 +40,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-// app.use("/profile", (req,res,next)=> {
-//   if(!req.session.user) res.redirect("/auth/login")
-//   else next()
-// })
+app.use("/profile", (req,res,next)=> {
+  if(!req.session.user) res.redirect("/auth/login")
+  else next()
+})
 
-// app.use("/", (req,res,next)=> {
-//   if(req.session.user) res.locals.user = req.session.user;
-//   next()
-// })
+app.use("/", (req,res,next)=> {
+  if(req.session.user) res.locals.user = req.session.user;
+  next()
+})
 
 app.use('/', require('./routes/index'));
 app.use('/', require('./routes/auth/auth'));
@@ -58,14 +58,13 @@ app.use('/profile', require('./routes/profile'));
 app.use('/profile/country', require('./routes/country'));
 app.use('/explorer', require('./routes/explorer'));
 
-// // catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//   next(createError(404));
-// });
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
+});
 
 // error handler
 app.use(function(err, req, res, next) {
-  debugger
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
