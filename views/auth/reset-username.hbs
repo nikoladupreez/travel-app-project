@@ -8,21 +8,11 @@
              <form action="/" method='POST' id='reset-un-form'> {{!-- Fill in route details && Front end validation --}}
                 <input type="text" name='username' placeholder='New username' class='input-reset'>
                 <input type="password" name='password' placeholder='Password' class='input-reset'>
-                <button type='submit' class='reset-btn'>RESET</button>
+                <button type='submit' class='reset-btn' onclick='popUp(resetUsername, confirmReset)'>RESET</button>
             </form> 
         </div>
-        <div id='password-reset'>
-              <h1 class='reset-title'>RESET CREDENTIALS</h1>
-              <form action="/" method='POST' id='reset-pw-form'> {{!-- Fill in route details && Front end validation --}}
-                <input type="text" name='username' placeholder='Username' class='input-reset'>
-                <input type="password" name='password' placeholder='New password' class='input-reset'>
-                <button type='submit' class='reset-btn'>RESET</button>
-            </form> 
-        </div>
-    </div>
 
-    <div id='confirm-reset-view'>
-        <div class='confirm-box'>
+        <div id='confirm-reset-view' class='confirm-box'>
             <div>
                 <i class='close-btn'></i>
             </div>

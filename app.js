@@ -40,15 +40,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use("/profile", (req,res,next)=> {
-  if(!req.session.user) res.redirect("/auth/login")
-  else next()
-})
+// app.use("/profile", (req,res,next)=> {
+//   if(!req.session.user) res.redirect("/auth/login")
+//   else next()
+// })
 
-app.use("/", (req,res,next)=> {
-  if(req.session.user) res.locals.user = req.session.user;
-  next()
-})
+// app.use("/", (req,res,next)=> {
+//   if(req.session.user) res.locals.user = req.session.user;
+//   next()
+// })
 
 app.use('/', require('./routes/index'));
 app.use('/', require('./routes/auth/auth'));
