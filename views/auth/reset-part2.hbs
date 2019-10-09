@@ -1,25 +1,27 @@
-<section class='index-container'>
+<section class='reset-container'>
      <div id='input-reset-view'>
         <div>
             <i class='close-btn'></i>
         </div>
-        <div id='username-reset'></div>
+        <div id='username-reset'>
+            <h1 class='reset-title'>RESET CREDENTIALS</h1>
              <form action="/" method='POST' id='reset-un-form'> {{!-- Fill in route details && Front end validation --}}
                 <input type="text" name='username' placeholder='New username' class='input-reset'>
                 <input type="password" name='password' placeholder='Password' class='input-reset'>
-                <button type='submit' id='reset-btn'>RESET</button>
+                <button type='submit' class='reset-btn'>RESET</button>
             </form> 
         </div>
-        <div id='password-reset'></div>
+        <div id='password-reset'>
+              <h1 class='reset-title'>RESET CREDENTIALS</h1>
               <form action="/" method='POST' id='reset-pw-form'> {{!-- Fill in route details && Front end validation --}}
                 <input type="text" name='username' placeholder='Username' class='input-reset'>
                 <input type="password" name='password' placeholder='New password' class='input-reset'>
-                <button type='submit' id='reset-btn'>RESET</button>
+                <button type='submit' class='reset-btn'>RESET</button>
             </form> 
         </div>
     </div>
 
-    {{!-- <div id='send-reset-view'>
+    <div id='confirm-reset-view'>
         <div class='confirm-box'>
             <div>
                 <i class='close-btn'></i>
@@ -31,5 +33,5 @@
                  <button type='button' class='ok-btn' onclick="location.href='/'">OKAY</button> 
             </div>
         </div>
-    </div> --}}
+    </div>
 </section>

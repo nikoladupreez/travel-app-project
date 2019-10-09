@@ -1,18 +1,18 @@
 <nav>
     <div id='nav-wrapper'>
-        <img src="/images/OnTrack-logo.png" alt="logo" id='logo'>
+        <a href='/' id='logo'></a>
         <div id='dropdown'>
             <button id='hamburger'><img src="/images/hamburger.png" alt="menu" id='hamburger'></button>
-            <div id='dropdown-content'>
-                <a href="/">Home</a>
-                <a href="/login">Login</a>
-                <a href="/signup">Sign up</a>
-                <a href="/" class='hide'>Logout</a>
-                <a href="/profile" class='hide'>Profile</a>
-                <a href="/explore" class='hide'>Explore</a>
-                <a href="/about" id='separate'>About us</a>
-                <a href="/contact">Contact</a>
-            </div>
+            <ul id='dropdown-content'>
+                <li class='show'><a href="/">Home</a></li>
+                <li class='show'><a href="/login">Login</a></li>
+                <li class='show'><a href="/signup">Sign up</a></li>
+                <li class='hide'><a href="/">Logout</a></li>
+                <li class='hide'><a href="/profile">Profile</a></li>
+                <li class='hide'><a href="/explore">Explore</a></li>
+                <li class='show'><a href="/about" id='separate'>About us</a></li>
+                <li class='show'><a href="/contact">Contact</a></li>
+            </ul>
         </div>
     </div>
 </nav>

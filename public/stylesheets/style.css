@@ -26,6 +26,7 @@ nav {
     top: 0;
     display: flex;
     justify-content: center;
+    z-index: 1;
 }
 
 #nav-wrapper {
@@ -38,6 +39,11 @@ nav {
 
 #logo {
     width: 120px;
+    height: 40px;
+    background-image: url(/images/OnTrack-logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 #dropdown {
@@ -61,32 +67,45 @@ nav {
     display: none;
     position: absolute;
     top: 90px;
+    right: 0;
+    padding: 0;
+    margin: 0;
     background-color: rgba(255, 255, 255, 0.7);
-    min-width: 100px;
+    width: 120px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     border-bottom-left-radius: 7px;
     z-index: 1;
   }
+
+  #dropdown-content li {
+    list-style: none;
+  }
+
+  .show {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   
   #dropdown-content a {   /* shadow box */
-    float: none;
     color: black;
-    padding: 12px 16px;
+    padding: 10px 0;
     text-decoration: none;
+    text-align: center;
     display: block;
     text-align: left;
     font-size: 0.8em;
   }
 
+  .hide {   /* does not work */
+    display: none;
+}
+
   #dropdown:hover #dropdown-content {   /* hover does not work, toggle  */
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-  }
-
-  .hide {   /* does not work */
-      display: none;
   }
 
   #separate {
