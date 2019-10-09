@@ -40,22 +40,22 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use("/profile", (req,res,next)=> {
-  if(!req.session.user) res.redirect("/auth/login")
-  else next()
-})
+// app.use("/profile", (req,res,next)=> {
+//   if(!req.session.user) res.redirect("/auth/login")
+//   else next()
+// })
 
-app.use("/", (req,res,next)=> {
-  if(req.session.user) res.locals.user = req.session.user;
-  next()
-})
+// app.use("/", (req,res,next)=> {
+//   if(req.session.user) res.locals.user = req.session.user;
+//   next()
+// })
 
 app.use('/', require('./routes/index'));
 app.use('/', require('./routes/auth/auth'));
 app.use('/about', require('./routes/about'));
 app.use('/contact', require('./routes/contact'));
 app.use('/profile', require('./routes/profile'));
-app.use('/profile', require('./routes/country'));
+app.use('/profile/country', require('./routes/country'));
 app.use('/explore', require('./routes/explorer'));
 
 // catch 404 and forward to error handler
