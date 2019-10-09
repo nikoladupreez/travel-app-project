@@ -68,6 +68,16 @@
 }
 
 #maps {
-    width: 55%;
     box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.25);
+    position: relative;
+    text-align: right;
+    height: 180px
+    width: 200px;
+}
+
+.gmap_canvas {
+    overflow: hidden;
+    background: none!important;
+    height: 180px;
+    width: 200px;
 }

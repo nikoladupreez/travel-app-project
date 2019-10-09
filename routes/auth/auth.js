@@ -6,6 +6,10 @@ const transporter = require("../mailer/mailer");
 var createError = require('http-errors');
 var jwt = require('jsonwebtoken');
 
+router.get("/signup", (req,res)=> {
+    res.render("auth/signup");
+})
+
 router.post("/signup", (req,res)=> {
     User.findOne({$or: [{username: req.body.username, email: req.body.email}]})
         .then((user)=> {
@@ -44,9 +48,6 @@ router.post("/signup", (req,res)=> {
         })
     })   
 
-router.get("/signup", (req,res)=> {
-    res.render("auth/signup");
-})
 router.post("/login", (req,res)=> {
     User.findOne({username: req.body.username})
         .then((user)=> {
@@ -84,18 +85,18 @@ router.post("/email-availability", (req,res)=> {
         })
 })
 
-router.get("/send-reset", (req,res)=> {
-    res.render("auth/send-reset")
+router.get("/get-reset-link", (req,res)=> {
+    res.render("auth/reset-link")
 })
 
-router.post("/send-reset", (req,res)=> {
+router.post("/get-reset-link", (req,res)=> {
     jwt.sign({email: req.body.email}, process.env.jwtSecret, { expiresIn: 60 * 60 }, function(err, token){
         transporter.sendMail({
             from: '"OnTrack" <Ontrack-ironhack@gmail.com>', // sender address
             to: req.body.email, // list of receivers
             subject: 'Reset your password ✔', // Subject line
             text: 'Reset password', // plain text body
-            html: `<b>Password reset for OnTrack: <a href="http://localhost:3000/auth/reset-password?token=${token}">Reset your password</a></b>` // html body
+            html: `<b>Password reset for OnTrack: <a href="http://localhost:3000/reset-password?token=${token}">Reset your password</a></b>` // html body
         })
         .then((result)=> {
             res.send("Email send")
@@ -104,6 +105,10 @@ router.post("/send-reset", (req,res)=> {
             res.next(createError(400))
         })
     })
+})
+
+router.get("/reset-username", (req,res)=> {
+    res.render("auth/reset-username", {token: req.query.token})
 })
 
 router.get("/reset-password", (req,res)=> {

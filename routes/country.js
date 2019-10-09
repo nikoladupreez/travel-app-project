@@ -6,9 +6,9 @@ app.get('/', function(req, res, next) {
   res.render('country');
 });
 
-/* ADD post page. */
-app.get('/add-post', function(req, res, next) {
-  res.render('post-add');
-});
+// /* ADD post page. */
+// app.get('/add-post', function(req, res, next) {
+//   res.render('post-add');
+// });
 
 module.exports = app;
