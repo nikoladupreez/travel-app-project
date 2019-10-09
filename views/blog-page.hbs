@@ -1,0 +1,68 @@
+<section id='blog-container'>
+    <div id='country-img-box'>
+        <img src="/" alt="country" id='blog-country-img'> {{!-- Fill in country.img --}}
+        <h1 id='blog-country-name'>Country</h1>
+    </div>
+    <div id='blog-container-box'>
+        <div id='blog-btn-box'>
+            <a href="/profile" class='back-link'>Go back</a> {{!-- Fill in user profile --}}
+            <div id='dropdown-add'>
+                <button id='add-icon-btn'><img src="/images/add.png" alt="add"></button>
+                <ul id='dropdown-add-content'>
+                    <li id='blog-btn'><a href='/profile/country/add-blog'>New blog</a></li>
+                    <li id='gallery-btn'><a href='/profile/country/add-gallery'>New gallery</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id='post-container'>
+            {{!-- {{each}} --}}
+                <div id='blog-box'>
+                    <div class='input-box' id='blog-img'>
+                        <img src="/" alt="blog-img" id='blog-img'> {{!-- Fill in --}}
+                    </div>
+                    <div class='input-box' id='blog-input'>
+                        <div id='blog-title-box'>
+                            <h1 class='blog-title'>Title</h1>
+                            <a href='/profile/country/edit-blog' id='blog-edit-icon'></a> 
+                        </div>
+                        <div id='city-date-box'>
+                            <div class='city-box'>
+                                <img src="/images/location-pin.png" alt="pin" id='pin'>
+                                <p id='city-name'>City</p> {{!-- Fill in --}}
+                            </div>
+                            <div class='date-box'>
+                                <p id='date'>Date</p> {{!-- Fill in --}}
+                            </div>
+                        </div>
+                        <div id='blog-text-box'>
+                            <p id='blog-text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere dui a aliquam semper. Mauris sit amet gravida nibh. Etiam non tincidunt ex. Integer sollicitudin lectus eu fringilla dictum...</p> {{!-- Fill in, max 300 characters--}}
+                        </div>
+                    </div>
+                </div>
+            {{!-- {{/each}} --}}
+            {{!-- {{each}} --}}
+                <div id='gallery-box'>
+                    <div id='gallery-title-box'>
+                        <div id='box1'></div>
+                        <div id='box2'>
+                            <h1 class='blog-title'>Title</h1>
+                            <a href='/profile/country/edit-blog' id='blog-edit-icon'></a> 
+                        </div>
+                    </div>
+                    <img src="/" alt="gallery-img" class='gal-img'> {{!-- Fill in --}}
+                    <div id='gal-city'>
+                       <div class='city-box'>
+                            <img src="/images/location-pin.png" alt="pin" id='pin'>
+                            <p id='city-name'>City</p> {{!-- Fill in --}}
+                        </div>
+                        <div class='date-box'>
+                            <p id='date'>Date</p> {{!-- Fill in --}}
+                        </div>
+                    </div>
+                </div>
+            {{!-- {{/each}} --}}
+        </div>
+    </div>
+    <img src="/images/blog-back.png" alt="" id='blog-back'>
+</section>
+

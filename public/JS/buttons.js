@@ -1,4 +1,4 @@
-//hamburger
+// hamburger
 // let hamburger = document.getElementById('dropdown');
 // let dropdown = document.getElementById('dropdown-content');
 

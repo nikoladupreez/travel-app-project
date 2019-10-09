@@ -4,6 +4,9 @@
 @import "/stylesheets/reset.css";
 @import "/stylesheets/about.css";
 @import "/stylesheets/contact.css";
+@import "/stylesheets/profile.css";
+@import "/stylesheets/country.css";
+@import "/stylesheets/blog.css";
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap');
 
 body {
@@ -26,7 +29,7 @@ nav {
     top: 0;
     display: flex;
     justify-content: center;
-    z-index: 1;
+    z-index: 5;
     box-shadow: 0px 2px 2px rgba(177, 176, 176, 0.25);
 }
 
@@ -73,7 +76,7 @@ nav {
     right: 0;
     padding: 0;
     margin: 0;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.9);
     width: 120px;
     box-shadow: 0px 2px 2px rgba(177, 176, 176, 0.25);
     border-bottom-left-radius: 7px;
