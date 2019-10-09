@@ -1,0 +1,35 @@
+<section class='index-container'>
+     <div id='input-reset-view'>
+        <div>
+            <i class='close-btn'></i>
+        </div>
+        <div id='username-reset'></div>
+             <form action="/" method='POST' id='reset-un-form'> {{!-- Fill in route details && Front end validation --}}
+                <input type="text" name='username' placeholder='New username' class='input-reset'>
+                <input type="password" name='password' placeholder='Password' class='input-reset'>
+                <button type='submit' id='reset-btn'>RESET</button>
+            </form> 
+        </div>
+        <div id='password-reset'></div>
+              <form action="/" method='POST' id='reset-pw-form'> {{!-- Fill in route details && Front end validation --}}
+                <input type="text" name='username' placeholder='Username' class='input-reset'>
+                <input type="password" name='password' placeholder='New password' class='input-reset'>
+                <button type='submit' id='reset-btn'>RESET</button>
+            </form> 
+        </div>
+    </div>
+
+    {{!-- <div id='send-reset-view'>
+        <div class='confirm-box'>
+            <div>
+                <i class='close-btn'></i>
+            </div>
+              <h1 class='mail-title'>YOU'VE GOT MAIL!</h1>
+              <i> {{!-- icon! --}}</i>
+              <p class='mail-paraf'> Reset your credentials with the reset link.</p>
+               <div class='btn-box'>
+                 <button type='button' class='ok-btn' onclick="location.href='/'">OKAY</button> 
+            </div>
+        </div>
+    </div> --}}
+</section>

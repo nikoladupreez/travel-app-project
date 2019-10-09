@@ -6,16 +6,16 @@
             </div>
             <h1 id='hi'>HI THERE <br> STRANGER!</h1>
             <form action="/" method='POST' id='signup-form'> {{!-- Fill in route details && Front end validation --}}
-                <input type="text" name='firstname' placeholder='Firstname' class='input'>
-                <input type="text" name='lastname' placeholder='Lastname' class='input'>
-                <input type="email" name='email' placeholder='Email' class='input'>
-                <input type="text" name='username' placeholder='Username' class='input'>
-                <input type="password" name='password' placeholder='Password' class='input'>
+                <input type="text" name='firstname' placeholder='Firstname' class='input-sign'>
+                <input type="text" name='lastname' placeholder='Lastname' class='input-sign'>
+                <input type="email" name='email' placeholder='Email' class='input-sign'>
+                <input type="text" name='username' placeholder='Username' class='input-sign'>
+                <input type="password" name='password' placeholder='Password' class='input-sign'>
                 <div class='btn-box'>
                      <button type='submit' id='start-btn'>START YOUR JOURNEY</button> {{!-- pop-up! --}}
                 </div>
             </form> 
-              <p class='login2'>Already a member? <a>Login</a></p>    
+              <p class='login2'>Already a member? <a href='/login'>Login</a></p>    
         </div>
     </div>
 
@@ -24,13 +24,13 @@
             <div>
                 <i class='close-btn'></i>
             </div>
-            <div id='confirm-mail'>
+            <div class='confirm-mail'>
                 <h1 id='mail-title'>YOU'VE GOT MAIL!</h1>
                 <i> {{!-- icon! --}}</i>
             </div>
-              <p id='mail-paraf'>Confirm your email to login.</p>
+              <p class='mail-paraf'>Confirm your email to login.</p>
               <div class='btn-box'>
-                 <button type='button' id='ok-btn' onclick="location.href='/login'">OKAY</button> 
+                 <button type='button' class='ok-btn' onclick="location.href='/login'">OKAY</button> 
             </div>
         </div>
     </div>

@@ -6,6 +6,8 @@ const transporter = require("../../mailer/mailer");
 var createError = require('http-errors');
 var jwt = require('jsonwebtoken');
 
+
+//sign up
 router.get("/signup", (req,res)=> {
     res.render("auth/signup");
 })
@@ -47,5 +49,22 @@ router.post("/signup", (req,res)=> {
             }
         })
     })   
+
+//login
+router.get("/login", (req,res)=> {
+    res.render("auth/login");
+})
+
+//reset
+router.get("/get-reset-link", (req,res)=> {
+    res.render("auth/reset-part1");
+})
+
+router.get("/reset", (req,res)=> {
+    res.render("auth/reset-part2");
+})
+
+//logout
+
 
 module.exports = router;

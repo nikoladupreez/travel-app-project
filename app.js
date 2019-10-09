@@ -52,6 +52,8 @@ app.use("/", (req,res,next)=> {
 
 app.use('/', require('./routes/index'));
 app.use('/', require('./routes/auth/auth'));
+app.use('/about', require('./routes/about'));
+app.use('/contact', require('./routes/contact'));
 // app.use('/profile', require('./routes/profile'));
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

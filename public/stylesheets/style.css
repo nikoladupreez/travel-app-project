@@ -1,5 +1,9 @@
 @import "/stylesheets/index.css";
 @import "/stylesheets/signup.css";
+@import "/stylesheets/login.css";
+@import "/stylesheets/reset.css";
+@import "/stylesheets/about.css";
+@import "/stylesheets/contact.css";
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap');
 
 body {
