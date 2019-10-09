@@ -51,7 +51,7 @@ app.use("/", (req,res,next)=> {
 })
 
 app.use('/', require('./routes/index'));
-app.use('/auth', require('./routes/auth/auth'));
+//app.use('/auth', require('./routes/auth/auth'));
 // app.use('/profile', require('./routes/profile'));
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -71,6 +71,6 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 
-//app listener
-let port = 3000;
-app.listen(port, () => console.log(`OnTrack project is running on port ${port}!`));
+// //app listener
+// let port = 3000;
+// app.listen(port, () => console.log(`OnTrack project is running on port ${port}!`));

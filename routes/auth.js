@@ -63,7 +63,7 @@ router.post("/login", (req,res)=> {
             }
         })
         .catch(err=> {
-            res.send("error erropr", err);
+            res.send("error error", err);
         })
 })
 
@@ -128,5 +128,4 @@ router.post("/reset-password", (req,res)=> {
     })
 })
 
-module.exports = router;
 module.exports = router;
