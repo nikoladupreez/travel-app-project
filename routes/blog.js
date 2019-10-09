@@ -7,22 +7,22 @@ app.get('/', function(req, res, next) {
 });
 
 /* ADD blog post on page. */
-app.get('/add-post', function(req, res, next) {
+app.get('/add-blog', function(req, res, next) {
   res.render('blog-add');
 });
 
 /* edit post on page. */
-app.get('/edit-post', function(req, res, next) {
+app.get('/edit-blog', function(req, res, next) {
   res.render('blog-edit');
 });
 
 /* ADD gallery on page. */
-app.get('/add-post', function(req, res, next) {
+app.get('/add-gallery', function(req, res, next) {
   res.render('gallery-add');
 });
 
 /* edit gallery on page. */
-app.get('/edit-post', function(req, res, next) {
+app.get('/edit-gallery', function(req, res, next) {
   res.render('gallery-edit');
 });
 

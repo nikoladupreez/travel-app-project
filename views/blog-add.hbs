@@ -1,0 +1,22 @@
+<section id='blog-container'>
+     <div id='edit-container'>
+         <div id='edit-box'>
+            <div id='country-edit-btns'>
+                <a href="/profile/country" class='back-link' id='back-link'>Back</a>
+            </div>
+            <h1>ADD BLOG</h1>
+            <form id='add-blog-form' action='/' method='POST'> 
+                <div id='add-file-box'>
+                    <input type="file" name='image' id="file"/> {{!-- fill in value --}}
+                    <label for="file" id="add-file">upload image</label>
+                </div>
+                <input required type="text" name='blog-title' placeholder='Title' class='input-blog' value=''> {{!-- value = user.firstname --}}
+                <input type="text" name='blog-city' placeholder='City' class='input-blog' value=''> {{!-- value = user.lastname --}}
+                <input type="date" name='blog-date' class='input-blog' value=''> {{!-- value = user.lastname --}}
+                <textarea maxlength='300' name="about" rows="50" cols="30" placeholder='Your story' class='input-blog' id='textarea'></textarea> {{!-- value = user.about --}}
+                <button type='submit' id='edit-btn'>Add</button>
+            </form>
+        </div>
+    </div>
+    <img src="/images/blog-back.png" alt="" id='blog-back'>
+</section>
