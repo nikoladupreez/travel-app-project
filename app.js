@@ -55,8 +55,8 @@ app.use('/', require('./routes/auth/auth'));
 app.use('/about', require('./routes/about'));
 app.use('/contact', require('./routes/contact'));
 app.use('/profile', require('./routes/profile'));
-app.use('/profile', require('./routes/country'));
-app.use('/explore', require('./routes/explorer'));
+// app.use('/profile', require('./routes/country'));
+// app.use('/explore', require('./routes/explorer'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -69,7 +69,7 @@ app.use(function(err, req, res, next) {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
   
-  // render the error page
+// render the error page
   res.status(err.status || 500);
   res.render('error');
 });
