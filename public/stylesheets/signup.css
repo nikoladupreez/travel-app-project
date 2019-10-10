@@ -31,6 +31,12 @@
     align-items: center;
 }
 
+.back-link-box {
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+}
+
 #hi {
     font-weight: 500;
 }

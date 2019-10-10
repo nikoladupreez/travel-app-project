@@ -8,18 +8,17 @@
     background-position: center;
     display: flex;
     align-items: center;
-    flex-direction: column; /*remove this later*/
+    flex-direction: column; 
 }
 
 /* home */
-#home-view { /* merge with other views*/
+#home-view { 
     width: 90%;
     margin: 40px 0 0 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: absolute;
-    /* display: none; remove this later */
 }
 
 #title-box, #auth-box {
@@ -30,7 +29,7 @@
     align-items: center;
 }
 
-#subtitle {   /* inner shadow */
+#subtitle {  
     color: white;
     margin: 0;
     position: relative;
@@ -39,7 +38,7 @@
     text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 }
 
-#title {   /* shadow */
+#title {   
     font-family: 'Oleo Script', cursive;
     font-size: 5em;
     margin: 0;
@@ -48,7 +47,7 @@
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.paraf {   /* background */
+.paraf {   
     background-color: rgba(255, 255, 255, 0.6);
     font-size: 0.9em;
     font-weight: 500;
@@ -65,7 +64,7 @@
     width: 70%;
 }
 
-.paraf-link {   /* shadow */
+.paraf-link {   
     color: white;
     font-weight: 600;
     font-size: 0.9em;
@@ -76,7 +75,7 @@
     margin: 300px 0 0 0;
 }
 
-.signup { /* merge with other btns*/
+.signup { 
     background-color: white;
     width: 150px;
     height: 40px;
@@ -90,7 +89,7 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.login {   /* shadow */
+.login {  
     color: white;
     text-decoration: underline;
 }
