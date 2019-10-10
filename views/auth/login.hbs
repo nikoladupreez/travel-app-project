@@ -5,9 +5,9 @@
                 <a href="/" class='back-link'>Back</a>
             </div>
             <h1 id='welcome'>WELCOME BACK!</h1>
-            <form action="/" method='POST' id='login-form'> {{!-- Fill in route details && Front end validation --}}
-                <input required type="text" name='username' placeholder='Username' class='input-log'>
-                <input required type="password" name='password' placeholder='Password' class='input-log'>
+            <form action="/login" method='POST' id='login-form'> {{!-- Fill in route details && Front end validation --}}
+                <input type="text" name='username' placeholder='Username' class='input-log'>
+                <input type="password" name='password' placeholder='Password' class='input-log'>
                 <button type='submit' id='login-btn'>LOGIN</button>
             </form> 
               <p class='signup-link'>Not a member yet? <a href='/signup' class='link'>Sign up</a></p>

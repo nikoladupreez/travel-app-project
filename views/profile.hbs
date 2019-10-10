@@ -7,29 +7,24 @@
             </div>
             <div id='about-user-box'>
                 <div id='name-edit'>
-                    <h1 id='user-name'>First Lastname</h1> {{!-- Fill in user name--}}
+                    <h1 id='user-name'>{{user.firstname}} {{user.lastname}}</h1>
                      <a href="/profile/edit" id='edit-profile-icon'></a>
                 </div>
-                <p id='user-about'>Lorem ipsum dolor sit amet, 
-                    consectetur adipiscing elit. 
-                    Sed posuere dui a aliquam semper. 
-                    Mauris sit amet gravida nibh. 
-                    Etiam non tincidunt ex. 
-                    Integer sollicitudin lectus eu fringilla dictum.</p> {{!-- Fill in user bio, max. 300 characters--}}
+                <p id='user-about'>{{user.about}}</p>
             </div>
         </div>
         <div id='journeys'>
             <h1 id='journey'>Journeys</h1>
-            <a href='/profile/add-country' id='add-country-icon'></a> 
+            <a href='/profile/{{user.id}}/add-country' id='add-country-icon'>Add a country</a> 
             <div id='countries-box'>
-                {{#each arr}} {{!-- Fill in country doc--}}
+                {{#each user.countries}}
                     <div id='country'>
                         <div id='stamp1'>
-                            <a href="/profile/edit-country" id='edit-country-icon'></a>
-                            <img src="#" alt="country" id='country-img'> {{!-- Fill in country img--}}
-                            <h2 id='country-name'>Country</h2> {{!-- Fill in country name--}}
+                            <a href="/profile/{{user._id}}/edit-country" id='edit-country-icon'></a>
+                            <img src="{{image_URL}}" alt="country" id='country-img'> {{!-- Fill in country img--}}
+                            <h2 id='country-name'>{{countries}}</h2> {{!-- Fill in country name--}}
                         </div>
-                        <a href='/profile/country' id='see-btn'>See more</a>
+                        <a href='/profile/{{user._id}}/country/{{this._id}}' id='see-btn'>See more</a>
                     </div>
                 {{/each}}
             </div>

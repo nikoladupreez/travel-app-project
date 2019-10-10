@@ -1,16 +1,16 @@
 const express = require("express");
-const router = express.Router();
+const app = express();
 const bcrypt = require("bcrypt");
 const User = require("../../models/user");
 const transporter = require("../../mailer/mailer");
 var createError = require('http-errors');
 var jwt = require('jsonwebtoken');
 
-router.get("/signup", (req,res)=> {
+app.get("/signup", (req,res)=> {
     res.render("auth/signup");
 })
 
-router.post("/signup", (req,res)=> {
+app.post("/signup", (req,res)=> {
     User.findOne({$or: [{username: req.body.username, email: req.body.email}]})
         .then((user)=> {
             if(user) res.send("User with this email or username already exists")
@@ -22,7 +22,8 @@ router.post("/signup", (req,res)=> {
                             username: req.body.username,
                             password: hash,
                             email: req.body.email,
-                            name: req.body.firstname
+                            firstname: req.body.firstname,
+                            lastname: req.body.lastname
                         })
                         .then((user)=> {
                             transporter.sendMail({
@@ -33,7 +34,7 @@ router.post("/signup", (req,res)=> {
                                 html: `<b>Hello, ${user.firstname}, thank you for signing up.</b>` // html body
                             })
                             .then((info)=> {
-                                res.redirect("/auth/login")
+                                res.render("auth/signup-confirm");
                             })
                             .catch((error)=> {
                                 res.send("ERROR ERROR")
@@ -47,18 +48,29 @@ router.post("/signup", (req,res)=> {
             }
         })
     })   
+app.get("/signup-confirm", (req,res) => {
+    res.render("auth/signup-confirm");
+})
 
-router.post("/login", (req,res)=> {
-    User.findOne({username: req.body.username})
+app.get("/login", (req,res)=> {
+        res.render("auth/login");
+    })
+app.post("/login", (req,res)=> {
+    User.findOne({"username": req.body.username})
         .then((user)=> {
-            if(!user) res.json({loggedIn: false}) // this is different
+            if(!user) res.json({loggedIn: false})
             else {
                 bcrypt.compare(req.body.password, user.password, function(err, equal) {
                     if(err) res.send(err);
-                    else if(!equal) res.json({loggedIn: false}); // this is different
+                    else if(!equal) res.json({loggedIn: false});
                     else {
                         req.session.user = user;
-                        res.json({loggedIn: true}); // this is different
+                        // let hide = document.getElementsByClassName("hide")
+                        // hide.forEach((element)=> {
+                        //     element.className = "show";
+                        // })
+                        global.userInfo = user;
+                        res.redirect(`/profile/${user._id}`);
                     }
                 });
             }
@@ -68,16 +80,14 @@ router.post("/login", (req,res)=> {
         })
 })
 
-router.get("/login", (req,res)=> {
-    res.render("auth/login");
-})
 
-router.get("/logout", (req, res)=> {
+
+app.get("/logout", (req, res)=> {
     req.session.destroy();
     res.redirect("/");
 })
 
-router.post("/email-availability", (req,res)=> {
+app.post("/email-availability", (req,res)=> {
     User.findOne({email: req.body.email})
         .then((user)=> {
             if(user)res.json({available: false})
@@ -85,37 +95,81 @@ router.post("/email-availability", (req,res)=> {
         })
 })
 
-router.get("/get-reset-link", (req,res)=> {
+app.get("/get-reset-link", (req,res)=> {
     res.render("auth/reset-link")
 })
 
-router.post("/get-reset-link", (req,res)=> {
-    jwt.sign({email: req.body.email}, process.env.jwtSecret, { expiresIn: 60 * 60 }, function(err, token){
-        transporter.sendMail({
-            from: '"OnTrack" <Ontrack-ironhack@gmail.com>', // sender address
-            to: req.body.email, // list of receivers
-            subject: 'Reset your password ✔', // Subject line
-            text: 'Reset password', // plain text body
-            html: `<b>Password reset for OnTrack: <a href="http://localhost:3000/reset-password?token=${token}">Reset your password</a></b>` // html body
-        })
-        .then((result)=> {
-            res.send("Email send")
+app.post("/get-reset-link", (req,res)=> {
+    if (!req.body){
+        res.render("auth/get-reset-link", {errorMessage: `Please fill complete one of the fields.`});
+    }
+    else if (req.body.username)
+    {
+        User.findOne({username:req.body.username})
+        .then((user) =>{
+            jwt.sign({email: user.email}, process.env.jwtSecret, { expiresIn: 60 * 60 }, function(err, token){
+                transporter.sendMail({
+                    from: '"OnTrack" <Ontrack-ironhack@gmail.com>', // sender address
+                    to: user.email, // list of receivers
+                    subject: 'Reset your password ✔', // Subject line
+                    text: 'Reset password', // plain text body
+                    html: `<b>Password reset for OnTrack: <a href="http://localhost:3000/reset-password?token=${token}">Reset your password</a></b>` // html body
+                })
+                .then(()=> {
+                    res.redirect("/reset-link-confirm");
+                })
+                .catch((err)=> {
+                    res.next(createError(400))
+                })
+            })  
         })
         .catch((err)=> {
             res.next(createError(400))
         })
-    })
+    }
+    else if (req.body.email){
+        User.findOne({email:req.body.email})
+        .then((user) =>{
+            jwt.sign({email: user.email}, process.env.jwtSecret, { expiresIn: 60 * 60 }, function(err, token){
+                transporter.sendMail({
+                    from: '"OnTrack" <Ontrack-ironhack@gmail.com>', // sender address
+                    to: user.email, // list of receivers
+                    subject: 'Get your username ✔', // Subject line
+                    text: 'Get your username', // plain text body
+                    html: `<b>
+                    Your username is: ${user.username}<br>
+                    If you'd like to reset your Password for OnTrack: <a href="http://localhost:3000/reset-password?token=${token}">Reset your password</a></b>` // html body
+                })
+                .then(()=> {
+                    res.redirect("/reset-link-confirm");
+                })
+                .catch((err)=> {
+                    res.next(createError(400))
+                })
+            })  
+        })
+        .catch((err)=> {
+            res.next(createError(400))
+        })
+    }
+
+
+
+   
+})
+app.get("/reset-link-confirm", (req,res) =>{
+    res.render("auth/reset-link-confirm");
 })
 
-router.get("/reset-username", (req,res)=> {
+app.get("/reset-username", (req,res)=> {
     res.render("auth/reset-username", {token: req.query.token})
 })
 
-router.get("/reset-password", (req,res)=> {
+app.get("/reset-password", (req,res)=> {
     res.render("auth/reset-password", {token: req.query.token})
 })
 
-router.post("/reset-password", (req,res)=> {
+app.post("/reset-password", (req,res)=> {
     jwt.verify(req.body.token, process.env.jwtSecret, function(err, token){
         if(err) res.send(err)
         bcrypt.hash(req.body.password, 10, function(err, hash){
@@ -123,7 +177,7 @@ router.post("/reset-password", (req,res)=> {
             else {
                 User.findOneAndUpdate({email: token.email}, {password: hash})
                 .then((result)=> {
-                    res.redirect("/auth/login")
+                    res.redirect("/login")
                 })
                 .catch((err)=> {
                     res.send(err)
@@ -133,4 +187,4 @@ router.post("/reset-password", (req,res)=> {
     })
 })
 
-module.exports = router;
+module.exports = app;
