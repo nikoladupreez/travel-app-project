@@ -55,7 +55,7 @@
     width: 80%;
     height: 70px;
     padding: 5px 0;
-    border-bottom: 0.5px solid lightgray;
+    border-bottom: 0.5px solid rgb(240, 238, 238);
     display: flex;
     justify-content: center;
     align-items: center;

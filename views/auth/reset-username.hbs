@@ -1,25 +1,13 @@
 <section class='reset-container'>
      <div id='input-reset-view'>
-        <a href="/" class='back-link'>Back</a>
-        <div id='username-reset'>
+         <div id='username-reset'>
+            <a href="/" class='back-link'>Back</a>
             <h1 class='reset-title'>RESET CREDENTIALS</h1>
              <form action="/" method='POST' id='reset-un-form'> {{!-- Fill in route details && Front end validation --}}
-                <input type="text" name='username' placeholder='New username' class='input-reset'>
-                <input type="password" name='password' placeholder='Password' class='input-reset'>
-                <button type='submit' class='reset-btn' onclick='popUp(resetUsername, confirmReset)'>RESET</button>
+                <input required type="text" name='username' placeholder='New username' class='input-reset'>
+                <input required type="password" name='password' placeholder='Password' class='input-reset'>
+                <button type='submit' class='reset-btn' onclick="location.href='/login'">RESET</button>
             </form> 
-        </div>
-
-        <div id='confirm-reset-view' class='confirm-box'>
-            <div>
-                <i class='close-btn'></i>
-            </div>
-              <h1 class='mail-title'>YOU'VE GOT MAIL!</h1>
-              <i> {{!-- icon! --}}</i>
-              <p class='mail-paraf'> Reset your credentials with the reset link.</p>
-               <div class='btn-box'>
-                 <button type='button' class='ok-btn' onclick="location.href='/'">OKAY</button> 
-            </div>
         </div>
     </div>
 </section>
