@@ -5,6 +5,7 @@ const User = mongoose.model("user", {
     password: {type: String, required: [true, "Password"]},
     email: {
         type: String, 
+        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address'],
         required: [true, "Please enter your email!"]
     },
     firstname: {type: String, required: [true, "Please enter your first name!"]},

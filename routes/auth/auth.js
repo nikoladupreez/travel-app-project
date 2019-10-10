@@ -34,7 +34,7 @@ app.post("/signup", (req,res)=> {
                                 html: `<b>Hello, ${user.firstname}, thank you for signing up.</b>` // html body
                             })
                             .then((info)=> {
-                                res.redirect("/login")
+                                res.render("auth/signup-confirm");
                             })
                             .catch((error)=> {
                                 res.send("ERROR ERROR")
@@ -48,22 +48,24 @@ app.post("/signup", (req,res)=> {
             }
         })
     })   
+app.get("/signup-confirm", (req,res) => {
+    res.render("auth/signup-confirm");
+})
+
 app.get("/login", (req,res)=> {
         res.render("auth/login");
     })
 app.post("/login", (req,res)=> {
-    User.findOne({username: req.body.username})
+    User.findOne({"username": req.body.username})
         .then((user)=> {
-            if(!user) res.json({loggedIn: false}) // this is different
+            if(!user) res.json({loggedIn: false})
             else {
                 debugger
                 bcrypt.compare(req.body.password, user.password, function(err, equal) {
                     if(err) res.send(err);
-                    else if(!equal) res.json({loggedIn: false}); // this is different
+                    else if(!equal) res.json({loggedIn: false});
                     else {
-                        debugger;
                         req.session.user = user;
-                        res.json({loggedIn: true}); // this is different
                         res.redirect("/profile");
                     }
                 });
@@ -94,21 +96,41 @@ app.get("/get-reset-link", (req,res)=> {
 })
 
 app.post("/get-reset-link", (req,res)=> {
-    jwt.sign({email: req.body.email}, process.env.jwtSecret, { expiresIn: 60 * 60 }, function(err, token){
-        transporter.sendMail({
-            from: '"OnTrack" <Ontrack-ironhack@gmail.com>', // sender address
-            to: req.body.email, // list of receivers
-            subject: 'Reset your password ✔', // Subject line
-            text: 'Reset password', // plain text body
-            html: `<b>Password reset for OnTrack: <a href="http://localhost:3000/reset-password?token=${token}">Reset your password</a></b>` // html body
-        })
-        .then((result)=> {
-            res.send("Email send")
+    console.log(req.body);
+    if (!req.body){
+        res.render("auth/get-reset-link", {errorMessage: `Please fill complete one of the fields.`});
+    }
+    else if (req.body.username)
+    {
+        User.findOne({username:req.body.username})
+        .then((user) =>{
+            jwt.sign({email: user.email}, process.env.jwtSecret, { expiresIn: 60 * 60 }, function(err, token){
+                transporter.sendMail({
+                    from: '"OnTrack" <Ontrack-ironhack@gmail.com>', // sender address
+                    to: user.email, // list of receivers
+                    subject: 'Reset your password ✔', // Subject line
+                    text: 'Reset password', // plain text body
+                    html: `<b>Password reset for OnTrack: <a href="http://localhost:3000/reset-password?token=${token}">Reset your password</a></b>` // html body
+                })
+                .then((result)=> {
+                    res.send("Email send")
+                })
+                .catch((err)=> {
+                    res.next(createError(400))
+                })
+            })  
         })
         .catch((err)=> {
             res.next(createError(400))
         })
-    })
+    }
+    else if (req.body.email){
+        
+    }
+
+
+
+   
 })
 
 app.get("/reset-username", (req,res)=> {

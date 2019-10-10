@@ -3,7 +3,7 @@
          <div id='username-reset'>
             <a href="/" class='back-link'>Back</a>
             <h1 class='reset-title'>RESET CREDENTIALS</h1>
-             <form action="/" method='POST' id='reset-un-form'> {{!-- Fill in route details && Front end validation --}}
+             <form action="/reset-username" method='POST' id='reset-un-form'> {{!-- Fill in route details && Front end validation --}}
                 <input required type="text" name='username' placeholder='New username' class='input-reset'>
                 <input required type="password" name='password' placeholder='Password' class='input-reset'>
                 <button type='submit' class='reset-btn' onclick="location.href='/login'">RESET</button>
