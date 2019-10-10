@@ -96,7 +96,6 @@ app.get("/get-reset-link", (req,res)=> {
 })
 
 app.post("/get-reset-link", (req,res)=> {
-    console.log(req.body);
     if (!req.body){
         res.render("auth/get-reset-link", {errorMessage: `Please fill complete one of the fields.`});
     }
@@ -112,8 +111,8 @@ app.post("/get-reset-link", (req,res)=> {
                     text: 'Reset password', // plain text body
                     html: `<b>Password reset for OnTrack: <a href="http://localhost:3000/reset-password?token=${token}">Reset your password</a></b>` // html body
                 })
-                .then((result)=> {
-                    res.send("Email send")
+                .then(()=> {
+                    res.redirect("/reset-link-confirm");
                 })
                 .catch((err)=> {
                     res.next(createError(400))
@@ -125,12 +124,37 @@ app.post("/get-reset-link", (req,res)=> {
         })
     }
     else if (req.body.email){
-        
+        User.findOne({email:req.body.email})
+        .then((user) =>{
+            jwt.sign({email: user.email}, process.env.jwtSecret, { expiresIn: 60 * 60 }, function(err, token){
+                transporter.sendMail({
+                    from: '"OnTrack" <Ontrack-ironhack@gmail.com>', // sender address
+                    to: user.email, // list of receivers
+                    subject: 'Get your username ✔', // Subject line
+                    text: 'Get your username', // plain text body
+                    html: `<b>
+                    Your username is: ${user.username}<br>
+                    If you'd like to reset your Password for OnTrack: <a href="http://localhost:3000/reset-password?token=${token}">Reset your password</a></b>` // html body
+                })
+                .then(()=> {
+                    res.redirect("/reset-link-confirm");
+                })
+                .catch((err)=> {
+                    res.next(createError(400))
+                })
+            })  
+        })
+        .catch((err)=> {
+            res.next(createError(400))
+        })
     }
 
 
 
    
+})
+app.get("/reset-link-confirm", (req,res) =>{
+    res.render("auth/reset-link-confirm");
 })
 
 app.get("/reset-username", (req,res)=> {
