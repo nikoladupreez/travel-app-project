@@ -8,21 +8,21 @@
             <div id='about-user-box'>
                 <div id='name-edit'>
                     <h1 id='user-name'>{{user.firstname}} {{user.lastname}}</h1>
-                     <a href="/profile/edit" id='edit-profile-icon'></a>
+                     <a href='/profile/{{user.id}}/edit' id='edit-profile-icon'></a>
                 </div>
                 <p id='user-about'>{{user.about}}</p>
             </div>
         </div>
         <div id='journeys'>
             <h1 id='journey'>Journeys</h1>
-            <a href='/profile/{{user.id}}/add-country' id='add-country-icon'>Add a country</a> 
+            <a href='/profile/{{user.id}}/add-country' id='add-country-icon'></a> 
             <div id='countries-box'>
                 {{#each user.countries}}
                     <div id='country'>
                         <div id='stamp1'>
                             <a href="/profile/{{user._id}}/edit-country" id='edit-country-icon'></a>
-                            <img src="{{image_URL}}" alt="country" id='country-img'> {{!-- Fill in country img--}}
-                            <h2 id='country-name'>{{countries}}</h2> {{!-- Fill in country name--}}
+                            <img src="{{image_URL}}" alt="country" id='country-img'>
+                            <h2 id='country-name'>{{name}}</h2>
                         </div>
                         <a href='/profile/{{user._id}}/country/{{this._id}}' id='see-btn'>See more</a>
                     </div>

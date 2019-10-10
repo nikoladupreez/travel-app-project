@@ -22,8 +22,6 @@ app.get('/:id/add-country', function(req, res) {
   console.log(req)
   Country.find({})
   .then((countries) => {
-    console.log(countries);
-    debugger;
     res.render('country-add',{userInfo, countries});
   })
   .catch((err)=> {
@@ -32,11 +30,13 @@ app.get('/:id/add-country', function(req, res) {
 });
 
 app.post('/:id/add-country', function(req, res){
+  debugger;
   UserCountry.create({
     name: mongoose.Types.ObjectId(req.body.country-name),
     image_URL: req.body.image
   })
   .then((country)=>{
+    debugger;
     userInfo.countries.push(country);
     res.redirect(`/profile/${userInfo._id}`);
   } )
