@@ -41,7 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use("/profile", (req,res,next)=> {
-  if(!req.session.user) res.redirect("/auth/login")
+  if(!req.session.user) res.redirect("/login")
   else next()
 })
 
@@ -74,8 +74,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-//app listener
-let port = 3000;
-app.listen(port, () => console.log(`OnTrack project is running on port ${port}!`));
+// //app listener
+// let port = 3000;
+// app.listen(port, () => console.log(`OnTrack project is running on port ${port}!`));
 
 module.exports = app;

@@ -34,7 +34,7 @@ app.post("/signup", (req,res)=> {
                                 html: `<b>Hello, ${user.firstname}, thank you for signing up.</b>` // html body
                             })
                             .then((info)=> {
-                                res.redirect("/auth/login")
+                                res.redirect("/login")
                             })
                             .catch((error)=> {
                                 res.send("ERROR ERROR")
@@ -48,18 +48,23 @@ app.post("/signup", (req,res)=> {
             }
         })
     })   
-
+app.get("/login", (req,res)=> {
+        res.render("auth/login");
+    })
 app.post("/login", (req,res)=> {
     User.findOne({username: req.body.username})
         .then((user)=> {
             if(!user) res.json({loggedIn: false}) // this is different
             else {
+                debugger
                 bcrypt.compare(req.body.password, user.password, function(err, equal) {
                     if(err) res.send(err);
                     else if(!equal) res.json({loggedIn: false}); // this is different
                     else {
+                        debugger;
                         req.session.user = user;
                         res.json({loggedIn: true}); // this is different
+                        res.redirect("/profile");
                     }
                 });
             }
@@ -69,9 +74,7 @@ app.post("/login", (req,res)=> {
         })
 })
 
-app.get("/login", (req,res)=> {
-    res.render("auth/login");
-})
+
 
 app.get("/logout", (req, res)=> {
     req.session.destroy();
@@ -124,7 +127,7 @@ app.post("/reset-password", (req,res)=> {
             else {
                 User.findOneAndUpdate({email: token.email}, {password: hash})
                 .then((result)=> {
-                    res.redirect("/auth/login")
+                    res.redirect("/login")
                 })
                 .catch((err)=> {
                     res.send(err)

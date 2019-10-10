@@ -5,7 +5,7 @@
         </div>
         <div id='username-reset'>
             <h1 class='reset-title'>RESET CREDENTIALS</h1>
-             <form action="/" method='POST' id='reset-un-form'> {{!-- Fill in route details && Front end validation --}}
+             <form action="/reset-username" method='POST' id='reset-un-form'> {{!-- Fill in route details && Front end validation --}}
                 <input type="text" name='username' placeholder='New username' class='input-reset'>
                 <input type="password" name='password' placeholder='Password' class='input-reset'>
                 <button type='submit' class='reset-btn' onclick='popUp(resetUsername, confirmReset)'>RESET</button>
