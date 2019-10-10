@@ -66,7 +66,12 @@ app.post("/login", (req,res)=> {
                     else if(!equal) res.json({loggedIn: false});
                     else {
                         req.session.user = user;
-                        res.redirect("/profile");
+                        // let hide = document.getElementsByClassName("hide")
+                        // hide.forEach((element)=> {
+                        //     element.className = "show";
+                        // })
+                        global.userInfo = user;
+                        res.redirect(`/profile/${user._id}`);
                     }
                 });
             }
