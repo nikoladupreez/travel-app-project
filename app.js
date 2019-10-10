@@ -57,6 +57,7 @@ app.use('/contact', require('./routes/contact'));
 app.use('/profile', require('./routes/profile'));
 app.use('/profile/country', require('./routes/blog'));
 app.use('/explorer', require('./routes/explorer'));
+app.use('/travelers', require('./routes/travelers'));
 
 // // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
