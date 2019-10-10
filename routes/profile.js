@@ -1,5 +1,6 @@
 var express = require('express');
 const UserCountry = require("../models/userCountry");
+const Country = require("../models/country");
 var app = express();
 
 
@@ -23,7 +24,7 @@ app.get('/:id/add-country', function(req, res) {
   .then((countries) => {
     console.log(countries);
     debugger;
-    res.render('country-add', {userInfo},{ countries});
+    res.render('country-add',{userInfo, countries});
   })
   .catch((err)=> {
     res.send(err.message)

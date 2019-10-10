@@ -11,7 +11,7 @@
                 </div>
                 <select name='country-name' id="countryId">
                     {{#each countries}}
-                        <option value="{{_id}}">{{Name}}</option> 
+                        <option value="{{this.id}}">{{this.name}}</option> 
                     {{/each}}
                 </select>
                 <button type='submit' id='edit-btn'>Save</button>
