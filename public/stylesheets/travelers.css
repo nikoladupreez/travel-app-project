@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css?family=La+Belle+Aurore&display=swap');
+#travelers-container {
+    width: 100vw;
+    height: 100vh;
+}
+
+#explore-link {
+    margin: 100px 0 0 0;
+    width: 100%;
+}
+
+#explore-btn, #profile-btn {
+    margin: 0 0 0 20px;
+    width: 80px;
+    height: 30px;
+    padding: 7px 13px;
+    background: white;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 7px;
+    font-size: 0.6em;
+    font-weight: 400;
+    text-decoration: none;
+    color: black;
+}
+
+#travelers-title-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#travelers-title {
+    margin: 20px 0 0 0;
+    font-family: 'La Belle Aurore', cursive;
+    font-weight: 500;
+    font-size: 2.3em;
+}
+
+#travelers-title span {
+    text-decoration: underline rgb(241, 209, 63);
+}
+
+#travelers-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#traveler {
+    margin: 0;
+    width: 80%;
+    height: 70px;
+    padding: 5px 0;
+    border-bottom: 0.5px solid rgb(240, 238, 238);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#thumb {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#profile-thumb {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: lightblue;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+#name-location {
+    margin: 15px 0 0 0;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+#name-thumb {
+    margin: 0 0 0 10px;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+#small-city-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pin-small {
+    margin: 0;
+    width: 30px;
+    height: 30px;
+}
+
+#city-number {
+    font-size: 0.8em;
+}
+
+#travelers-back {
+    width: 100%;
+    bottom: 0;
+    position: fixed;
+    z-index: -2;
+}

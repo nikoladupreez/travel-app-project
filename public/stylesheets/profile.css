@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css?family=La+Belle+Aurore&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC&display=swap');
+
+#profile-container {
+    width: 100vw;
+    height: 100vh;
+}
+
+#profile-back {
+    width: 100%;
+    position: fixed;
+    z-index: -1;
+}
+
+#profile-box {
+    margin: 130px 0 0 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#about-user {
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+
+#profile-img-box {
+    width: 140px;
+    height: 140px;
+    border: 2px rgb(243, 205, 102) solid;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#profile-img {
+    width: 135px;
+    height: 135px;
+    background-color: lightblue;
+    background-repeat: none;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+#about-user-box {
+    width: 50%;
+    height: 130px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+#user-name {
+   margin: 0; 
+   text-transform: uppercase;
+   font-size: 0.9em;
+   font-weight: 600; 
+}
+
+#user-about {
+    margin: 5px 0 0 0;
+    font-size: 0.7em;
+}
+
+#name-edit {
+    display: flex;
+    justify-content: space-between;
+}
+
+#edit-profile-icon {
+    width: 30px;
+    height: 30px;
+    background-image: url('/images/edit.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#journeys {
+    margin: 30px 0 0 0; 
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#journey {
+    margin: 0;
+    font-size: 1.5em;
+    font-family: 'La Belle Aurore', cursive;
+    font-weight: 500;
+}
+
+#add-country-icon {
+    margin: 0 0 0 330px;
+    width: 25px;
+    height: 25px;
+    background-image: url('/images/add.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#countries-box {
+    margin: 10px 0 30px 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#country {
+    width: 150px;
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+#edit-country-icon {
+    margin: 2px 0 0 125px;
+    width: 30px;
+    height: 30px;
+    background-image: url('/images/edit.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    position: relative;
+}
+
+#stamp1 {
+    width: 150px;
+    height: 220px;
+    margin: 0;
+    background-image: url('/images/stamp.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    -webkit-filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
+    filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#country-img {
+    margin: 0;
+    width: 120px;
+    height: 170px;
+    background-color: lightgoldenrodyellow;
+}
+
+#country-name {
+    font-size: 1.2em;
+    font-weight: 500;
+    font-family: 'Alegreya Sans SC', sans-serif;
+}
+
+#see-btn {
+    margin: 20px 0;
+    width: 60px;
+    height: 25px;
+    background: white;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 7px;
+    font-size: 0.6em;
+    font-weight: 500;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* EDIT PROFILE */
+
+#edit-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#edit-box {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.back-link {
+    margin: 10px 270px 0 0;
+    padding: 3px;
+    color: black;
+    text-decoration: none;
+    font-size: 0.7em;
+    font-weight: 500;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#edit-box h1 {
+    margin: 0 0 30px 0;
+    font-weight: 600;
+}
+
+#about-form {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.input-profile {
+    width: 80%;
+    margin: 5px 0;
+    padding: 0 0 0 20px;
+    height: 40px;
+    background: #FFFFFF;
+    box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+#textarea {
+    padding: 10px;
+    height: 100px;
+}
+
+[type="file"] {
+    height: 0;
+    overflow: hidden;
+    width: 0;
+  }
+
+  #add-file {
+    margin: 5px 0;
+    background-color: #f7cc7d;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    overflow: hidden;
+    color: white;
+    font-size: 0.8em;
+  }
+
+  #add-file-box {
+      margin: 0 0 20px 0;
+  }
+
+#edit-btn {
+    margin: 10px 0;
+    width: 80px;
+    height: 30px;
+    background:  rgb(255, 255, 255);
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 7px;
+    font-size: 0.8em;
+    font-weight: 500;
+    border: none;
+}

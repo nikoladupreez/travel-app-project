@@ -1,10 +1,8 @@
 <section class='reset-container'>
      <div id='reset-view'>
         <div id='reset-box'>
-            <div>
-                <i class='close-btn'></i>
-            </div>
-             <form action="/get-reset-link" method='POST' id='reset-form'> {{!-- Fill in route details && Front end validation --}}
+            <a href="/" class='back-link'>Back</a>
+             <form action="/" method='POST' id='reset-form'> {{!-- Fill in route details && Front end validation --}}
                 <label class='label' for="email">Forgot your username? Fill in your email.</label>
                 <input type="email" name='email' placeholder='Email' class='input-reset'>
                 <label class='label' for="username">Forgot your password? Fill in your username.</label>
@@ -15,12 +13,10 @@
     </div>
 
     <div id='send-reset-view'>
-        <div class='confirm-box'>
-            <div>
-                <i class='close-btn'></i>
-            </div>
+        <div class='confirm-box-reset'>
+              <a href="/profile" class='back-link'>Back</a>
               <h1 class='mail-title'>YOU'VE GOT MAIL!</h1>
-              <i> {{!-- icon! --}}</i>
+              <img src="/images/mail.png" alt="mail" id='mail-send-icon'>
               <p class='mail-paraf'> Reset your credentials with the reset link.</p>
                <div class='btn-box'>
                  <button type='button' class='ok-btn' onclick="location.href='/'">OKAY</button> 

@@ -1,0 +1,19 @@
+<section id='profile-container'>
+    <img src="/images/profile-back.png" alt="background" id='profile-back'>
+    <div id='edit-container'>
+        <div id='edit-box'>
+            <a href="/profile" class='back-link'>Back</a>
+            <h1>EDIT PROFILE</h1>
+            <form id='about-form' action='/' method='POST'> 
+                <div id='add-file-box'>
+                    <input type="file" name='image' id="file"/>
+                    <label for="file" id="add-file">upload image</label>
+                </div>
+                <input required type="text" name='firstname' placeholder='Firstname' class='input-profile' value=''> {{!-- value = user.firstname --}}
+                <input required type="text" name='lastname' placeholder='Firstname' class='input-profile' value=''> {{!-- value = user.lastname --}}
+                <textarea maxlength='300' name="about" rows="50" cols="30" placeholder='About you' class='input-profile' id='textarea'></textarea> {{!-- value = user.about --}}
+                <button type='submit' id='edit-btn'>Save</button>
+            </form>
+        </div>
+    </div>
+</section>

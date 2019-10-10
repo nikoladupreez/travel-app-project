@@ -1,36 +1,39 @@
 <section id='profile-container'>
-    <div id='about-user'>
-        <div id='profile-img-box'>
-            <img src="#" alt="profile-img"> {{!-- Fill in user img --}}
-        </div>
-        <div id='about-user-box'>
-            <div>
-                 <h1 id='user-name'>#</h1> {{!-- Fill in user name--}}
-                 <a></a> {{!-- Change edit btn --}}
+    <img src="/images/profile-back.png" alt="background" id='profile-back'>
+    <div id='profile-box'>
+        <div id='about-user'>
+            <div id='profile-img-box'>
+                <div id='profile-img'></div>
             </div>
-            <p id='user-about'>#</p> {{!-- Fill in user bio--}}
-        </div>
-    </div>
-    <div id='jouneys'>
-        <h1 id='journey'>Journey</h1>
-        <div id='countries-box'>
-            {{#each arr}} {{!-- Fill in country doc--}}
-                <div id='country'>
-                    <img src="#" alt="country" id='country-img'> {{!-- Fill in country img--}}
-                    <div>
-                        <h2 id='country-name'>#</h2> {{!-- Fill in country name--}}
-                        <h3 id='country-date'>#</h3> {{!-- Fill in date: default is create, changes when updated--}}
-                    </div>
+            <div id='about-user-box'>
+                <div id='name-edit'>
+                    <h1 id='user-name'>First Lastname</h1> {{!-- Fill in user name--}}
+                     <a href="/profile/edit" id='edit-profile-icon'></a>
                 </div>
-                <button id='see-btn'>See more</button>
-            {{/each}}
+                <p id='user-about'>Lorem ipsum dolor sit amet, 
+                    consectetur adipiscing elit. 
+                    Sed posuere dui a aliquam semper. 
+                    Mauris sit amet gravida nibh. 
+                    Etiam non tincidunt ex. 
+                    Integer sollicitudin lectus eu fringilla dictum.</p> {{!-- Fill in user bio, max. 300 characters--}}
+            </div>
         </div>
-        <div style="text-align:center" id='gallery-dots'>
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
+        <div id='journeys'>
+            <h1 id='journey'>Journeys</h1>
+            <a href='/profile/add-country' id='add-country-icon'></a> 
+            <div id='countries-box'>
+                {{#each arr}} {{!-- Fill in country doc--}}
+                    <div id='country'>
+                        <div id='stamp1'>
+                            <a href="/profile/edit-country" id='edit-country-icon'></a>
+                            <img src="#" alt="country" id='country-img'> {{!-- Fill in country img--}}
+                            <h2 id='country-name'>Country</h2> {{!-- Fill in country name--}}
+                        </div>
+                        <a href='/profile/country' id='see-btn'>See more</a>
+                    </div>
+                {{/each}}
+            </div>
         </div>
-        <a></a> {{!-- Change add btn --}}
     </div>
 </section>
 

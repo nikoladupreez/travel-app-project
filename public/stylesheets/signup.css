@@ -82,18 +82,18 @@
 
 #confirm-signup-view { /* merge with other views*/
     width: 90%;
-    margin: 250px 0 0 0;
+    margin: 0;
     position: absolute;
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.confirm-box { /* merge with other boxes*/
+.confirm-box-sign { /* merge with other boxes*/
     background-color: white;
     border-radius: 10px;
     width: 85%;
-    height: 200px;
+    height: 250px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     text-align: center;
     transition: all 5s ease-in-out;
@@ -114,9 +114,10 @@
     font-weight: 600;
 }
 
-.mail-paraf {
-    font-size: 0.9em;
-    font-style: normal;
+#binoc-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 0 -20px 0;
 }
 
 .ok-btn {

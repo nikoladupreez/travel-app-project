@@ -1,0 +1,26 @@
+<section id='profile-container'>
+    <img src="/images/profile-back.png" alt="background" id='profile-back'>
+    <div id='country-edit-container'>
+        <div id='country-edit-box'>
+            <div id='country-edit-btns'>
+                <a href="/profile" class='back-link' id='back-link'>Back</a>
+                <a href="/profile/delete-country" id='country-delete'>delete</a>
+            </div>
+            <h1>EDIT COUNTRY</h1>
+            <form id='country-form' action='/' method='POST'> 
+                <div id='add-file-box'>
+                    <label for="image" id='add-file'>Upload image</label>
+                    <input type="file" name='image' value=''> {{!-- value = {{country.img}} --}}
+                </div>
+                <select name='country-name' id="countryId">
+                    {{!-- {{#select country._id}} --}}
+                    {{!-- {{#each countries}} --}}
+                        <option value=""></option> {{!-- value = {{_id}}, innner html = {{name}}  --}}
+                    {{!-- {{/each}} --}}
+                    {{!-- {{/select}} --}}
+                </select>
+                <button type='submit' id='edit-btn'>Save</button>
+            </form>
+        </div>
+    </div>
+</section>
