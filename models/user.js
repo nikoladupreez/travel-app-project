@@ -10,10 +10,9 @@ const User = mongoose.model("user", {
     },
     firstname: {type: String, required: [true, "Please enter your first name!"]},
     lastname : {type: String, required: [true, "Please enter your last name!"]},
-    countries: [{type: mongoose.Types.ObjectId, ref: "country"}],
+    countries: [{type: mongoose.Types.ObjectId, ref: "userCountry"}],
     cities: [{type: mongoose.Types.ObjectId, ref: "cities"}],
     about: String
-    //posts:[{type: mongoose.Model}]
 })
 
 module.exports = User;

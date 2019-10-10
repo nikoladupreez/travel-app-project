@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 
-const Country = mongoose.model("country", {
-    countries: String,
-    image_URL: String,
+const Country = mongoose.model("countries", {
+    name: String,
     cities: [{type: mongoose.Types.ObjectId, ref: "cities"}]
     
 });

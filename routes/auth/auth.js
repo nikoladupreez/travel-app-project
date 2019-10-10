@@ -60,7 +60,6 @@ app.post("/login", (req,res)=> {
         .then((user)=> {
             if(!user) res.json({loggedIn: false})
             else {
-                debugger
                 bcrypt.compare(req.body.password, user.password, function(err, equal) {
                     if(err) res.send(err);
                     else if(!equal) res.json({loggedIn: false});
