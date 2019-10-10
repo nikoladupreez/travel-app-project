@@ -3,7 +3,11 @@ var app = express();
 
 /* GET country page. */
 app.get('/', function(req, res, next) {
-  res.render('blog-page');
+  console.log(req)
+  let post = req.body.post
+
+  let blogs = document.getElementById("blog-box")
+  res.render('blog-page', {userInfo});
 });
 
 /* ADD blog post on page. */
@@ -25,5 +29,6 @@ app.get('/add-gallery', function(req, res, next) {
 app.get('/edit-gallery', function(req, res, next) {
   res.render('gallery-edit');
 });
+
 
 module.exports = app;

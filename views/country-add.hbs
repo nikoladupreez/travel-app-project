@@ -4,7 +4,7 @@
         <div id='country-add-box'>
             <a href="/profile/{{userInfo._id}}" class='back-link'>Back</a>
             <h1>ADD COUNTRY</h1>
-            <form id='country-form' action='/{{userInfo.id}}/add-country' method='POST'> 
+            <form id='country-form' action='/profile/{{userInfo.id}}/add-country' method='POST'> 
                 <div id='add-file-box'>
                     <input type="file" name='image' id="file">
                     <label for="file" id='add-file'>Upload image</label>
