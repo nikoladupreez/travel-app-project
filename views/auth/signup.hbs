@@ -1,9 +1,7 @@
 <section class='index-container'>
      <div id='signup-view'>
         <div id='signup-box'>
-            <div>
-                <a href='/'><i class='close-btn'></i></a> {{!-- icon! --}}
-            </div>
+            <a href="/" class='back-link'>Back</a>
             <h1 id='hi'>HI THERE <br> STRANGER!</h1>
             <form action="/" method='POST' id='signup-form'> {{!-- Fill in route details && Front end validation --}}
                 <input type="text" name='firstname' placeholder='Firstname' class='input-sign'>
@@ -25,10 +23,10 @@
                 <i class='close-btn'></i>
             </div>
             <div class='confirm-mail'>
-                <h1 id='mail-title'>YOU'VE GOT MAIL!</h1>
+                <h1 id='mail-title'>LET THE ADVENTURES BEGIN!</h1>
                 <i> {{!-- icon! --}}</i>
             </div>
-              <p class='mail-paraf'>Confirm your email to login.</p>
+              <p class='mail-paraf'>Check your email for a confirmation.</p>
               <div class='btn-box'>
                  <button type='button' class='ok-btn' onclick="location.href='/login'">OKAY</button> 
             </div>
