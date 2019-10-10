@@ -4,20 +4,20 @@
         <div id='country-edit-box'>
             <div id='country-edit-btns'>
                 <a href="/profile" class='back-link' id='back-link'>Back</a>
-                <a href="/profile/delete-country" id='country-delete'>delete</a>
+                <a href="/profile/delete-country/{{userCountry._id}}" id='country-delete'>delete</a>
             </div>
             <h1>EDIT COUNTRY</h1>
-            <form id='country-form' action='/' method='POST'> 
+            <form id='country-form' action='/profile/edit-country/{{userCountry._id}}' method='POST' enctype="multipart/form-data"> 
                 <div id='add-file-box'>
-                    <input type="file" name='image' id="file"/> {{!-- fill in value --}}
+                    <input type="file" name='image' id="file" value='{{userCountry.image_URL}}'/> 
                     <label for="file" id="add-file">upload image</label>
                 </div>
-                <select name='country-name' id="countryId">
-                    {{!-- {{#select country._id}} --}}
-                    {{!-- {{#each countries}} --}}
-                        <option value=""></option> {{!-- value = {{_id}}, innner html = {{name}}  --}}
-                    {{!-- {{/each}} --}}
-                    {{!-- {{/select}} --}}
+                <select name='countryId' id="countryId">
+                    {{#select userCountry.country._id}}
+                    {{#each countries}}
+                        <option value="{{_id}}">{{name}}</option> 
+                    {{/each}}
+                   {{/select}}
                 </select>
                 <button type='submit' id='edit-btn'>Save</button>
             </form>

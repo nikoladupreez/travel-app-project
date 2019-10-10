@@ -1,8 +1,8 @@
 var express = require('express');
 var app = express();
 
-/* GET country page. */
-app.get('/', function(req, res, next) {
+/* GET country-blog page. */
+app.get('/:id', function(req, res, next) {
   res.render('blog-page');
 });
 

@@ -158,10 +158,18 @@
 }
 
 #country-img {
+  width: auto;
+  height: 100%;
+}
+
+#country-img-container {
     margin: 0;
     width: 120px;
     height: 170px;
-    background-color: lightgoldenrodyellow;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #country-name {

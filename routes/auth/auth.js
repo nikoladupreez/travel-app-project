@@ -70,7 +70,7 @@ app.post("/login", (req,res)=> {
                         //     element.className = "show";
                         // })
                         global.userInfo = user;
-                        res.redirect(`/profile/${user._id}`);
+                        res.redirect(`/profile`);
                     }
                 });
             }
