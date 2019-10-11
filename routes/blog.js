@@ -29,7 +29,7 @@ app.get('/:id/add-blog', function(req, res, next) {
   UserCountry.findById(req.params.id)
       .populate('country')
       .then((userCountry) => {
-        City.find({country: userCountry.country})
+        City.find({country: userCountry.country.name})
             .then((cities) => {
                 res.render('blog-add', {cities, userCountry})
             })
