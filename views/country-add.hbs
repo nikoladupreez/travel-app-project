@@ -6,18 +6,14 @@
                 <a href="/profile" class='back-link'>Back</a>
             </div>
             <h1>ADD COUNTRY</h1>
-<<<<<<< HEAD
-            <form id='country-form' action='/profile/{{userInfo.id}}/add-country' method='POST'> 
-=======
             <form id='country-form' action='/profile/add-country' method='POST' enctype="multipart/form-data"> 
->>>>>>> 2847b6183baf39b198da533d423914bbaa43f8c5
                 <div id='add-file-box'>
                     <input type="file" name='image' id="file"/> 
                     <label for="file" id="add-file">upload image</label>
                 </div>
                 <select name='countryId' id="countryId">
                     {{#each countries}}
-                        <option value="{{this.name}}">{{this.name}}</option> 
+                        <option value="{{this._id}}">{{this.name}}</option> 
                     {{/each}}
                 </select>
                 <button type='submit' id='edit-btn'>Save</button>
