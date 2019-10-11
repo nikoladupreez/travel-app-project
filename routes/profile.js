@@ -2,7 +2,6 @@ var express = require('express');
 const uploadCloud   = require('./config/cloudinary.js');
 const mongoose = require('mongoose');
 var app = express();
-
 const UserCountry = require("../models/userCountry");
 const Country = require("../models/country");
 const User = require("../models/user");
@@ -10,7 +9,7 @@ const User = require("../models/user");
 
 /* GET user profile page. */
 app.get('/', function(req, res, next) {
-  User.findById(userInfo.id)
+  User.findById(req.session.user._id)
       .populate({
           path: 'countries',
           populate: {
@@ -38,7 +37,7 @@ app.get('/', function(req, res, next) {
 
 /* GET profile edit page. */
 app.get('/:id/edit', function(req, res) {
-  User.findById(userInfo.id)
+  User.findById(req.session.user._id)
       .then((user) => {
           res.render('profile-edit', {user})
       })
@@ -68,7 +67,8 @@ app.post('/:id/edit', uploadCloud.single('image'), function(req, res) {
 app.get('/add-country', function(req, res) {
   Country.find({})
   .then((countries) => {
-    res.render('country-add',{userInfo, countries});
+    let user = req.session.user;
+    res.render('country-add',{user, countries})
   })
   .catch((err)=> {
     res.send(err.message)
@@ -81,7 +81,7 @@ app.post('/add-country', uploadCloud.single('image'), function(req, res){
     image_URL: req.file.url
   })
   .then((userCountry)=>{
-    User.update({_id: userInfo._id}, {$push: {countries: userCountry}})
+    User.update({_id: req.session.user._id}, {$push: {countries: userCountry}})
     .then((user) => {
         res.redirect(`/profile`);
     })
@@ -91,8 +91,8 @@ app.post('/add-country', uploadCloud.single('image'), function(req, res){
   })
   .then((country)=>{
     debugger;
-    userInfo.countries.push(country);
-    res.redirect(`/profile/${userInfo._id}`);
+    req.session.user.countries.push(country);
+    res.redirect(`/profile/${req.session.user._id}`);
   } )
   .catch((err)=> {
     res.send(err.message);
@@ -144,5 +144,4 @@ app.get('/delete-country/:id', (req, res) => {
   })
 });
 
-module.exports = app;
-  
+ module.exports = app;
