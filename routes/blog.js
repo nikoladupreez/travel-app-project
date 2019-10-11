@@ -26,9 +26,16 @@ app.get('/:id', function(req, res, next) {
 
 /* ADD blog post on page. */
 app.get('/:id/add-blog', function(req, res, next) {
-  City.find({})
-      .then((cities) => {
-          res.render('blog-add', {cities})
+  UserCountry.findById(req.params.id)
+      .populate('country')
+      .then((userCountry) => {
+        City.find({country: userCountry.country})
+            .then((cities) => {
+                res.render('blog-add', {cities, userCountry})
+            })
+            .catch((err)=> {
+              res.send(err.message)
+            })
       })
       .catch((err)=> {
         res.send(err.message)
@@ -107,12 +114,19 @@ app.get('/:id/delete-blog/:postId', (req, res) => {
 
 /* ADD gallery on page. */
 app.get('/:id/add-gallery', function(req, res, next) {
-  City.find({})
-  .then((cities) => {
-      res.render('gallery-add',{cities});
+  UserCountry.findById(req.params.id)
+  .populate('country')
+  .then((userCountry) => {
+    City.find({country: userCountry.country})
+        .then((cities) => {
+            res.render('gallery-add', {cities, userCountry})
+        })
+        .catch((err)=> {
+          res.send(err.message)
+        })
   })
   .catch((err)=> {
-    res.send(err.message);
+    res.send(err.message)
   })
 });
 
