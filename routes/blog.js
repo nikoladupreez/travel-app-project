@@ -1,32 +1,28 @@
 var express = require('express');
 var app = express();
 
-/* GET country page. */
-app.get('/', function(req, res, next) {
-  console.log(req)
-  let post = req.body.post
-
-  let blogs = document.getElementById("blog-box")
-  res.render('blog-page', {userInfo});
+/* GET country-blog page. */
+app.get('/:id', function(req, res, next) {
+  res.render('blog-page');
 });
 
 /* ADD blog post on page. */
-app.get('/add-blog', function(req, res, next) {
+app.get('/:id/add-blog', function(req, res, next) {
   res.render('blog-add');
 });
 
 /* edit post on page. */
-app.get('/edit-blog', function(req, res, next) {
+app.get('/:id/edit-blog', function(req, res, next) {
   res.render('blog-edit');
 });
 
 /* ADD gallery on page. */
-app.get('/add-gallery', function(req, res, next) {
+app.get('/:id/add-gallery', function(req, res, next) {
   res.render('gallery-add');
 });
 
 /* edit gallery on page. */
-app.get('/edit-gallery', function(req, res, next) {
+app.get('/:id/edit-gallery', function(req, res, next) {
   res.render('gallery-edit');
 });
 

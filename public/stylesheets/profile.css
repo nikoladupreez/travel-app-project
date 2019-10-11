@@ -12,6 +12,12 @@
     z-index: -1;
 }
 
+@media screen and (min-width: 650px) {   
+    #profile-back{
+        width: 661px;
+    }
+}
+
 #profile-box {
     margin: 130px 0 0 0;
     width: 100%;
@@ -29,6 +35,12 @@
     z-index: 1;
 }
 
+@media screen and (min-width: 450px) {   
+    #about-user {
+        width: 382.5px;
+    }
+}
+
 #profile-img-box {
     width: 140px;
     height: 140px;
@@ -39,15 +51,17 @@
     align-items: center;
 }
 
-#profile-img {
+#profile-img-container {
     width: 135px;
     height: 135px;
-    background-color: lightblue;
-    background-repeat: none;
-    background-size: cover;
-    background-position: center;
+    overflow: hidden;
     border-radius: 50%;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+.profile-img {
+    width: 100%;
+    height: auto;
 }
 
 #about-user-box {
@@ -158,10 +172,18 @@
 }
 
 #country-img {
+  width: auto;
+  height: 100%;
+}
+
+#country-img-container {
     margin: 0;
     width: 120px;
     height: 170px;
-    background-color: lightgoldenrodyellow;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #country-name {

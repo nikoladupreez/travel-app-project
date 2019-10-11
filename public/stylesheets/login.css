@@ -31,6 +31,13 @@
     align-items: center;
 }
 
+@media screen and (min-width: 500px) {   
+    #login-box {
+        width: 384px;
+    }
+}
+
+
 #welcome {
     font-weight: 500;
 }
