@@ -65,6 +65,7 @@ app.post('/:id/edit', uploadCloud.single('image'), function(req, res) {
 
 /* ADD country on page. */
 app.get('/add-country', function(req, res) {
+  debugger
   Country.find({})
   .then((countries) => {
     let user = req.session.user;
@@ -81,20 +82,12 @@ app.post('/add-country', uploadCloud.single('image'), function(req, res){
     image_URL: req.file.url
   })
   .then((userCountry)=>{
-    User.update({_id: req.session.user._id}, {$push: {countries: userCountry}})
-    .then((user) => {
-        res.redirect(`/profile`);
-    })
-    .catch((err) => {
-      res.send(err.message);
-    })
+    return User.update({_id: req.session.user._id}, {$push: {countries: userCountry}})
   })
-  .then((country)=>{
-    debugger;
-    req.session.user.countries.push(country);
-    res.redirect(`/profile/${req.session.user._id}`);
-  } )
-  .catch((err)=> {
+  .then((user) => {
+    res.redirect(`/profile`);
+  })
+  .catch((err) => {
     res.send(err.message);
   })
 });
