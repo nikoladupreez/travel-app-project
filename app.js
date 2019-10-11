@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require("mongoose");
 var session = require("express-session");
+const MongoStore = require('connect-mongo')(session);
 var app = express();
 var hbs = require('hbs');
 require("dotenv").config();
@@ -14,12 +15,6 @@ app.locals.config = {
   host: process.env.host
 }
 console.log(process.env.host)
-app.use(session({
-  secret: 'keyboard cat',
-  expires: {maxAge: 6000},
-  resave: true,
-  saveUninitialized: true
-}))
 
 mongoose.connect("mongodb://localhost/ontrack",  { useUnifiedTopology: true , useNewUrlParser: true})
   .then(()=> {
@@ -28,6 +23,12 @@ mongoose.connect("mongodb://localhost/ontrack",  { useUnifiedTopology: true , us
   .catch((err)=> {
     console.log("Not connected to mongodb error", err);
   })
+
+  app.use(session({
+  secret: 'keyboard cat',
+  store: new MongoStore({mongooseConnection: mongoose.connection})
+}))
+  
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -47,6 +48,7 @@ hbs.registerHelper('select', function(selected, options) {
 });
 
 app.use("/profile", (req,res,next)=> {
+  console.log(req.session.user)
   if(!req.session.user) res.redirect("/login")
   else next()
 })
