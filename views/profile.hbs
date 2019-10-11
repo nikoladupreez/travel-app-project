@@ -3,12 +3,18 @@
     <div id='profile-box'>
         <div id='about-user'>
             <div id='profile-img-box'>
-                <div id='profile-img'></div>
+                <div id='profile-img-container'>
+                    {{#if user.images_URL}}
+                        <img src="{{user.image_URL}}" alt="profile_img" class='profile-img'>
+                    {{else}}
+                        <img src='/images/default-profile.png' alt='' class='profile-img'>
+                    {{/if}}
+                </div>
             </div>
             <div id='about-user-box'>
                 <div id='name-edit'>
                     <h1 id='user-name'>{{user.firstname}} {{user.lastname}}</h1>
-                     <a href="/profile/edit" id='edit-profile-icon'></a>
+                     <a href="/profile/{{user._id}}/edit" id='edit-profile-icon'></a>
                 </div>
                 <p id='user-about'>{{user.about}}</p>
             </div>

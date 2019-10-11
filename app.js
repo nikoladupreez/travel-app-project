@@ -46,7 +46,6 @@ hbs.registerHelper('select', function(selected, options) {
       '$& selected="selected"');
 });
 
-
 app.use("/profile", (req,res,next)=> {
   if(!req.session.user) res.redirect("/login")
   else next()

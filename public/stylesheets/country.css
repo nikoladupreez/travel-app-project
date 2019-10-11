@@ -19,6 +19,12 @@
     z-index: 1;
 }
 
+@media screen and (min-width: 500px) {   
+    #country-add-box, #country-edit-box {
+        width: 384px;
+    }
+}
+
 #country-edit-btns {
     margin: 10px 0 0 0;
     width: 90%;
@@ -58,6 +64,10 @@
     border-radius: 5px;
 }
 
-#country-name {
+#countryId {
     width: 70%;
+    margin: 20px 0;
+    box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    background-color: white;
 }

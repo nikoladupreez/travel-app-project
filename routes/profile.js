@@ -8,14 +8,14 @@ const Country = require("../models/country");
 const User = require("../models/user");
 
 
-/* GET profile page. */
+/* GET user profile page. */
 app.get('/', function(req, res, next) {
   User.findById(userInfo.id)
       .populate({
           path: 'countries',
           populate: {
-          path: 'country'
-        }
+                      path: 'country'
+                    }
       })
       .then((user) => {
         res.render('profile', {user: user});
@@ -25,20 +25,43 @@ app.get('/', function(req, res, next) {
       })
 });
 
-/* GET profile page. */
-app.get('/traveler/:id', function(req, res, next) {
-  User.findById(req.params.id)
-  .then((user) => {
-    res.render('profile', {user});
-  })
-  .catch((err) => {
-    res.send(err.message);
-  })
+// /* GET profile page other travelers. */
+// app.get('/traveler/:id', function(req, res, next) {
+//   User.findById(req.params.id)
+//   .then((user) => {
+//     res.render('profile', {user});
+//   })
+//   .catch((err) => {
+//     res.send(err.message);
+//   })
+// });
+
+/* GET profile edit page. */
+app.get('/:id/edit', function(req, res) {
+  User.findById(userInfo.id)
+      .then((user) => {
+          res.render('profile-edit', {user})
+      })
 });
 
-/* GET edit page. */
-app.post('/edit', function(req, res) {
+app.post('/:id/edit', uploadCloud.single('image'), function(req, res) {
+  let updateUserInfo = { 
+                        firstname: req.body.firstname,
+                        lastname: req.body.lastname,
+                        about: req.body.about
+                       };
 
+  if(req.file) {
+  updateUserInfo.image_URL = req.file.url;
+  }
+
+  User.findOneAndUpdate( {_id: req.params.id}, updateUserInfo )
+      .then((userInfo) => {
+      res.redirect('/profile');
+      })
+      .catch((err) => {
+      res.send(err);
+      })
 });
 
 /* ADD country on page. */
@@ -90,9 +113,8 @@ app.get('/edit-country/:id', function(req, res) {
 });
 
 app.post('/edit-country/:id', uploadCloud.single('image'), (req, res) => {
-    let updateUserCountry = {
-                              country: req.body.countryId
-                            };
+    let updateUserCountry = { country: req.body.countryId };
+
     if(req.file) {
       updateUserCountry.image_URL = req.file.url;
     }

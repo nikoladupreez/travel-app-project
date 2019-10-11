@@ -118,6 +118,40 @@ nav {
       border-top: 1px solid lightsalmon;
   }
 
+  @media screen and (min-width: 1024px) {   
+    nav {
+      height: 70px;
+    }
+
+    #dropdown {
+      float: left;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    } 
+  
+    #hamburger {
+        display: none;
+    }
+  
+    #dropdown-content {
+      background: none;
+      width: 50%;
+      box-shadow: none;
+      border-bottom-left-radius: 0;
+      top: 20px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    #separate {
+      border: none;
+    }
+  }
+
 
   /* Footer */
 footer {
@@ -130,10 +164,12 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 footer ul {
     padding: 0;
+    margin: 0;
     width: 80%;
     display: flex;
     justify-content: space-around;
