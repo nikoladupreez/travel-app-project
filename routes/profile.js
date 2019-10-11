@@ -37,8 +37,8 @@ app.post('/:id/add-country', function(req, res){
   })
   .then((country)=>{
     debugger;
-    userInfo.countries.push(country);
-    res.redirect(`/profile/${userInfo._id}`);
+    req.session.user.countries.push(country);
+    res.redirect(`/profile/${req.session.user._id}`);
   } )
   .catch((err)=> {
     res.send(err.message)
