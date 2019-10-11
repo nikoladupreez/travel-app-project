@@ -2,14 +2,20 @@
     <img src="/images/profile-back.png" alt="background" id='profile-back'>
     <div id='country-add-container'>
         <div id='country-add-box'>
-            <a href="/profile/{{userInfo._id}}" class='back-link'>Back</a>
+            <div class='back-link-box'>
+                <a href="/profile" class='back-link'>Back</a>
+            </div>
             <h1>ADD COUNTRY</h1>
+<<<<<<< HEAD
             <form id='country-form' action='/profile/{{userInfo.id}}/add-country' method='POST'> 
+=======
+            <form id='country-form' action='/profile/add-country' method='POST' enctype="multipart/form-data"> 
+>>>>>>> 2847b6183baf39b198da533d423914bbaa43f8c5
                 <div id='add-file-box'>
-                    <input type="file" name='image' id="file">
-                    <label for="file" id='add-file'>Upload image</label>
+                    <input type="file" name='image' id="file"/> 
+                    <label for="file" id="add-file">upload image</label>
                 </div>
-                <select name='country-name' id="countryId">
+                <select name='countryId' id="countryId">
                     {{#each countries}}
                         <option value="{{this.name}}">{{this.name}}</option> 
                     {{/each}}

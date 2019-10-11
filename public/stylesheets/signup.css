@@ -31,6 +31,12 @@
     align-items: center;
 }
 
+@media screen and (min-width: 500px) {   
+    #signup-box {
+        width: 384px;
+    }
+}
+
 .back-link-box {
     width: 90%;
     display: flex;

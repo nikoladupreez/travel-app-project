@@ -56,6 +56,7 @@ app.get("/login", (req,res)=> {
         res.render("auth/login");
     })
 app.post("/login", (req,res)=> {
+    debugger;   
     User.findOne({"username": req.body.username})
         .then((user)=> {
             if(!user) res.json({loggedIn: false})
@@ -65,12 +66,9 @@ app.post("/login", (req,res)=> {
                     else if(!equal) res.json({loggedIn: false});
                     else {
                         req.session.user = user;
-                        // let hide = document.getElementsByClassName("hide")
-                        // hide.forEach((element)=> {
-                        //     element.className = "show";
-                        // })
                         global.userInfo = user;
-                        res.redirect(`/profile/${user._id}`);
+                        // global.loggedIn = true;
+                        res.redirect(`/profile`);
                     }
                 });
             }

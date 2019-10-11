@@ -71,13 +71,43 @@
     box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.25);
     position: relative;
     text-align: right;
-    height: 180px
+    height: 180px;
     width: 200px;
 }
 
 .gmap_canvas {
     overflow: hidden;
     background: none!important;
-    height: 180px;
-    width: 200px;
+    height: 100%;
+    width: 100%;
+}
+
+@media screen and (min-width: 500px) { 
+
+    #address-box {
+        margin: 40px 0 0 0;
+        width: 470px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #maps {
+        box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.25);
+        position: relative;
+        text-align: right;
+        height: 180px;
+        width: 300px;
+    }
+}
+
+
+@media screen and (min-width: 680px) { 
+    #contact-form {
+        margin: 20px 0 0 0;
+        width: 650px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
