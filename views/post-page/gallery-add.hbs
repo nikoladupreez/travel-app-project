@@ -4,20 +4,17 @@
             <div id='country-edit-btns'>
                 <a href="/profile/country/{{userCountry.id}}" class='back-link' id='back-link'>Back</a>
             </div>
-            <h1>ADD BLOG</h1>
-            <form id='add-blog-form' action='/{{userCountry.id}}/add-blog' method='POST' enctype ='multipart/form-data'> 
+            <h1>ADD GALLERY</h1>
+            <form id='add-gallery-form' action='/{{userCountry.id}}/gallery-add' method='POST' enctype ='multipart/form-data'> 
                 <div id='add-file-box'>
-                    <input type="file" name='image' id="file"/> 
+                    <input required type="file" name='image' id="file"/> 
                     <label for="file" id="add-file">upload image</label>
                 </div>
                 <input required type="text" name='blog-title' placeholder='Title' class='input-blog'> 
-                <select name='cityId' id="cityId">
-                   {{#each cities}}
+                 {{#each cities}}
                        <option value="{{this._id}}">{{this.name}}</option>
-                   {{/each}}
-               </select>
+                {{/each}}
                 <input type="date" name='blog-date' class='input-blog'> 
-                <textarea maxlength='300' name="about" rows="50" cols="30" placeholder='Your story' class='input-blog' id='textarea'></textarea>
                 <button type='submit' id='edit-btn'>Add</button>
             </form>
         </div>

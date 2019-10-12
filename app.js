@@ -16,7 +16,7 @@ app.locals.config = {
 }
 console.log(process.env.host)
 
-mongoose.connect("mongodb://localhost/ontrack",  { useUnifiedTopology: true , useNewUrlParser: true})
+mongoose.connect(`${process.env.DB}`,  { useUnifiedTopology: true , useNewUrlParser: true})
   .then(()=> {
     console.log("connected to mongodb");
   })

@@ -1,0 +1,29 @@
+<section id='blog-container'>
+     <div id='edit-container'>
+         <div id='edit-box'>
+            <div id='country-edit-btns'>
+                <a href="/profile/country/{{userCountry.id}}" class='back-link' id='back-link'>Back</a>
+                <a href="/profile/delete-post" id='country-delete'>delete</a>
+            </div>
+            <h1>EDIT BLOG</h1>
+            <form id='edit-blog-form' action='/profile/country/{{userCountry.id}}/edit-blog/{{post.id}}' method='POST' enctype='multipart/form-data'> 
+                <div id='add-file-box'>
+                    <input required type="file" name='image' id="file"/> 
+                    <label for="file" id="add-file">upload image</label>
+                </div>
+                <input required type="text" name='blog-title' placeholder='Title' class='input-blog' value='{{post.title}}'/> 
+                 <select name='cityId' id="cityId">
+                   {{#select post.city._id}}
+                   {{#each cities}}
+                       <option value="{{this._id}}">{{this.name}}</option>
+                   {{/each}}
+                   {{/select}}
+                </select>
+                <input type="date" name='blog-date' class='input-blog' value='{{post.date}}'/> 
+                <textarea required maxlength='300' name="about" rows="50" cols="30" placeholder='Your story' class='input-blog' id='textarea'>{{post.story}}</textarea> 
+                <button type='submit' id='edit-btn'>Save</button>
+            </form>
+        </div>
+    </div>
+    <img src="/images/blog-back.png" alt="" id='blog-back'>
+</section>

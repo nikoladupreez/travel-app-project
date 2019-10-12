@@ -12,12 +12,18 @@ const mongoose = require('mongoose');
 /* GET country-blog page. */
 app.get('/:id', function(req, res, next) {
   UserCountry.findById(req.params.id)
-    .populate(['country', 'posts'])
+    .populate('country')
+    .populate({
+      path: 'posts',
+      populate: {
+                  path: 'city'
+                }
+    })
     .then((userCountry) => {
       userCountry.posts.sort(function(a,b) {
         return new Date(b.date) - new Date(a.date);
       })
-      res.render('blog-page', {userCountry});
+      res.render('post-page/post-page', {userCountry});
     })
     .catch((err) => {
       res.send(err.message);
@@ -27,15 +33,15 @@ app.get('/:id', function(req, res, next) {
 /* ADD blog post on page. */
 app.get('/:id/add-blog', function(req, res, next) {
   UserCountry.findById(req.params.id)
-      .populate('country')
+      .populate({
+        path: 'country',
+        populate: {
+                    path: 'cities'
+                  }
+      })
       .then((userCountry) => {
-        City.find({country: userCountry.country.name})
-            .then((cities) => {
-                res.render('blog-add', {cities, userCountry})
-            })
-            .catch((err)=> {
-              res.send(err.message)
-            })
+        const cities = userCountry.country.cities;
+        res.render('post-page/blog-add', {cities, userCountry})
       })
       .catch((err)=> {
         res.send(err.message)
@@ -56,7 +62,7 @@ app.post('/:id/add-blog', uploadCloud.single('image'), function(req, res, next) 
       return UserCountry.update({_id: req.params.id}, {$push: {posts: post}})
   })
   .then((userCountry) => {
-      res.redirect('/profile/country/:id')
+      res.redirect(`/profile/country/${req.params.id}`)
   })
   .catch((err)=> {
     res.send(err.message)
@@ -69,9 +75,16 @@ app.get('/:id/edit-blog/:postId', function(req, res, next) {
   Post.findById(req.params.postId)
       .populate('city')
       .then((post) => {
-          City.find({})
-          .then((cities) => {
-            res.render('blog-edit', {post, cities});
+          UserCountry.findById(req.params.id)
+          .populate({
+            path: 'country',
+            populate: {
+                        path: 'cities'
+                      }
+          })
+          .then((userCountry) => {
+            const cities = userCountry.country.cities;
+            res.render('post-page/blog-edit', {post, cities});
           })
           .catch((err)=> {
             res.send(err.message);
@@ -119,7 +132,7 @@ app.get('/:id/add-gallery', function(req, res, next) {
   .then((userCountry) => {
     City.find({country: userCountry.country})
         .then((cities) => {
-            res.render('gallery-add', {cities, userCountry})
+            res.render('post-page/gallery-add', {cities, userCountry})
         })
         .catch((err)=> {
           res.send(err.message)
@@ -158,7 +171,7 @@ app.get('/:id/edit-gallery/:postId', function(req, res, next) {
   .then((post) => {
       City.find({})
       .then((cities) => {
-        res.render('gallery-edit', {post, cities});
+        res.render('post-page/gallery-edit', {post, cities});
       })
       .catch((err)=> {
         res.send(err.message);
