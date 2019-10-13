@@ -173,6 +173,7 @@ app.post("/reset-password", (req,res)=> {
         bcrypt.hash(req.body.password, 10, function(err, hash){
             if(err) res.send(err)
             else {
+                debugger
                 User.findOneAndUpdate({email: token.email}, {password: hash})
                 .then((result)=> {
                     res.redirect("/login")
