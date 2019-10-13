@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "cdd70f25-9547-4160-987c-4bd5be9bbc42",
+		"name": "ontrack",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Signup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "firstname",
+							"value": "Jurgen",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "Tonneyck",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "j.tonneyck@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "Piepongwong",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345678Jurgen",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "Piepongwong",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345678Jurgen",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Country",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "countryId",
+							"value": "5da08eb0d754e3068c58fc15",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/rosir/Downloads/IMG_2543.JPG"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/profile/add-country",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"profile",
+						"add-country"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

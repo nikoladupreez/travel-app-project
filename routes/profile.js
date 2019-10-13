@@ -65,7 +65,6 @@ app.post('/:id/edit', uploadCloud.single('image'), function(req, res) {
 
 /* ADD country on page. */
 app.get('/add-country', function(req, res) {
-  debugger
   Country.find({})
   .then((countries) => {
     let user = req.session.user;
