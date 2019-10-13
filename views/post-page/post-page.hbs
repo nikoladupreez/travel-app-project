@@ -46,14 +46,14 @@
                         <div id='box1'></div>
                         <div id='box2'>
                             <h1 class='blog-title'>{{title}}</h1>
-                            <a href='/profile/country/{{userCountry.id}}/edit-gallery/{{id}}' id='blog-edit-icon'></a> 
+                            <a href='/profile/country/{{../userCountry.id}}/edit-gallery/{{id}}' id='blog-edit-icon'></a> 
                         </div>
                     </div>
-                    <img src="/" alt="gallery-img" class='gal-img'> 
+                    <img src="{{image_URL}}" alt="gallery-img" class='gal-img'> 
                     <div id='gal-city'>
                        <div class='city-box'>
                             <img src="/images/location-pin.png" alt="pin" id='pin'>
-                            <p id='city-name'>{{city}}</p> 
+                            <p id='city-name'>{{city.name}}</p> 
                         </div>
                         <div class='date-box'>
                             <p id='date'>{{date}}</p> 

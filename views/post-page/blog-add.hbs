@@ -10,13 +10,13 @@
                     <input required type="file" name='image' id="file"/> 
                     <label for="file" id="add-file">upload image</label>
                 </div>
-                <input required type="text" name='title' placeholder='Title' class='input-blog'> 
+                <input required type="text" name='title' placeholder='Title' class='input-blog'/> 
                 <select name='cityId' id="cityId">
                    {{#each cities}}
                        <option value="{{this.id}}">{{this.name}}</option>
                    {{/each}}
                 </select>
-                <input type="date" name='date' class='input-blog'> 
+                <input type="date" name='date' class='input-blog'/> 
                 <textarea required maxlength='300' name="story" rows="50" cols="30" placeholder='Your story' class='input-blog' id='textarea'></textarea>
                 <button type='submit' id='edit-btn'>Add</button>
             </form>

@@ -8,7 +8,7 @@ var jwt = require('jsonwebtoken');
 
 app.get("/signup", (req,res)=> {
     res.render("auth/signup");
-})
+});
 
 app.post("/signup", (req,res)=> {
     User.findOne({$or: [{username: req.body.username, email: req.body.email}]})
@@ -47,14 +47,16 @@ app.post("/signup", (req,res)=> {
                 })
             }
         })
-    })   
+});
+
 app.get("/signup-confirm", (req,res) => {
     res.render("auth/signup-confirm");
-})
+});
 
 app.get("/login", (req,res)=> {
         res.render("auth/login");
-    })
+});
+
 app.post("/login", (req,res)=> {
     debugger;   
     User.findOne({"username": req.body.username})
@@ -76,14 +78,12 @@ app.post("/login", (req,res)=> {
         .catch(err=> {
             res.send("error error", err);
         })
-})
-
-
+});
 
 app.get("/logout", (req, res)=> {
     req.session.destroy();
     res.redirect("/");
-})
+});
 
 app.post("/email-availability", (req,res)=> {
     User.findOne({email: req.body.email})
@@ -91,11 +91,11 @@ app.post("/email-availability", (req,res)=> {
             if(user)res.json({available: false})
             else res.json({available: true})
         })
-})
+});
 
 app.get("/get-reset-link", (req,res)=> {
     res.render("auth/reset-link")
-})
+});
 
 app.post("/get-reset-link", (req,res)=> {
     if (!req.body){
@@ -111,18 +111,18 @@ app.post("/get-reset-link", (req,res)=> {
                     to: user.email, // list of receivers
                     subject: 'Reset your password ✔', // Subject line
                     text: 'Reset password', // plain text body
-                    html: `<b>Password reset for OnTrack: <a href="http://localhost:3000/reset-password?token=${token}">Reset your password</a></b>` // html body
+                    html: `<b>Password reset for OnTrack: <a href="${process.env.resetPasswordLink}?token=${token}">Reset your password</a></b>` // html body
                 })
                 .then(()=> {
                     res.redirect("/reset-link-confirm");
                 })
                 .catch((err)=> {
-                    res.next(createError(400))
+                    res.send(err.message);
                 })
             })  
         })
         .catch((err)=> {
-            res.next(createError(400))
+            res.send(err.message);
         })
     }
     else if (req.body.email){
@@ -136,7 +136,7 @@ app.post("/get-reset-link", (req,res)=> {
                     text: 'Get your username', // plain text body
                     html: `<b>
                     Your username is: ${user.username}<br>
-                    If you'd like to reset your Password for OnTrack: <a href="http://localhost:3000/reset-password?token=${token}">Reset your password</a></b>` // html body
+                    If you'd like to reset your Password for OnTrack: <a href="${process.env.resetPasswordLink}?token=${token}">Reset your password</a></b>` // html body
                 })
                 .then(()=> {
                     res.redirect("/reset-link-confirm");
@@ -150,22 +150,19 @@ app.post("/get-reset-link", (req,res)=> {
             res.next(createError(400))
         })
     }
+});
 
-
-
-   
-})
 app.get("/reset-link-confirm", (req,res) =>{
     res.render("auth/reset-link-confirm");
-})
+});
 
 app.get("/reset-username", (req,res)=> {
     res.render("auth/reset-username", {token: req.query.token})
-})
+});
 
 app.get("/reset-password", (req,res)=> {
     res.render("auth/reset-password", {token: req.query.token})
-})
+});
 
 app.post("/reset-password", (req,res)=> {
     jwt.verify(req.body.token, process.env.jwtSecret, function(err, token){
@@ -183,6 +180,6 @@ app.post("/reset-password", (req,res)=> {
             }
         })
     })
-})
+});
 
 module.exports = app;
