@@ -152,9 +152,18 @@
   .input-box { 
     width: 50%;
     height: 100%;
+    overflow: hidden;
+  }
+
+  #img-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
   }
 
   #blog-img { 
+    height: 100%;
+    width: auto;
     background-color: lightgoldenrodyellow;
     display: flex;
     justify-content: center;

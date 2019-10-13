@@ -36,12 +36,12 @@ app.post("/signup", (req,res)=> {
                             .then((info)=> {
                                 res.render("auth/signup-confirm");
                             })
-                            .catch((error)=> {
-                                res.send("ERROR ERROR")
+                            .catch((err)=> {
+                                res.send(err.message);
                             })
                         })
                         .catch((err)=> {
-                            res.send(err.message)
+                            res.send(err.message);
                         })
                     }
                 })

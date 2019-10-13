@@ -12,7 +12,8 @@ const User = mongoose.model("user", {
     lastname : {type: String, required: [true, "Please enter your last name!"]},
     countries: [{type: mongoose.Types.ObjectId, ref: "userCountry"}],
     cities: [{type: mongoose.Types.ObjectId, ref: "cities"}],
-    about: String
+    about: String,
+    image_URL: String
 })
 
 module.exports = User;

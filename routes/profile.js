@@ -17,7 +17,7 @@ app.get('/', function(req, res, next) {
                     }
       })
       .then((user) => {
-        res.render('profile', {user: user});
+        res.render('profile-page/profile', {user: user});
       })
       .catch((err) => {
         res.send(err.message);
@@ -39,23 +39,25 @@ app.get('/', function(req, res, next) {
 app.get('/:id/edit', function(req, res) {
   User.findById(req.session.user._id)
       .then((user) => {
-          res.render('profile-edit', {user})
+          res.render('profile-page/profile-edit', {user})
       })
 });
 
 app.post('/:id/edit', uploadCloud.single('image'), function(req, res) {
+  debugger;
   let updateUserInfo = { 
                         firstname: req.body.firstname,
                         lastname: req.body.lastname,
                         about: req.body.about
                        };
-
+  debugger;         
   if(req.file) {
   updateUserInfo.image_URL = req.file.url;
   }
 
   User.findOneAndUpdate( {_id: req.params.id}, updateUserInfo )
       .then((userInfo) => {
+        debugger;
       res.redirect('/profile');
       })
       .catch((err) => {
@@ -65,10 +67,11 @@ app.post('/:id/edit', uploadCloud.single('image'), function(req, res) {
 
 /* ADD country on page. */
 app.get('/add-country', function(req, res) {
-  Country.find({})
+  debugger;
+  Country.find({}).sort('name')
   .then((countries) => {
     let user = req.session.user;
-    res.render('country-add',{user, countries})
+    res.render('profile-page/country-add',{user, countries})
   })
   .catch((err)=> {
     res.send(err.message)
@@ -98,7 +101,7 @@ app.get('/edit-country/:id', function(req, res) {
   .then((userCountry) => {
       Country.find({})
       .then((countries) => {
-        res.render('country-edit', {userCountry, countries});
+        res.render('profile-page/country-edit', {userCountry, countries});
       })
       .catch((err)=> {
         res.send(err.message);

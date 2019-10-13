@@ -1,0 +1,26 @@
+<section id='blog-container'>
+     <div id='edit-container'>
+         <div id='edit-box'>
+            <div id='country-edit-btns'>
+                <a href="/profile/country/{{userCountry.id}}" class='back-link' id='back-link'>Back</a>
+                <a href="/profile/delete-gallery" id='country-delete'>delete</a>
+            </div>
+            <h1>EDIT GALLERY</h1>
+            <form id='edit-gallery-form' action='/{{userCountry.id}}/gallery-edit/{{post.id}}' method='POST' enctype ='multipart/form-data'> 
+                <div id='add-file-box'>
+                    <input required type="file" name='image' id="file"/> 
+                    <label for="file" id="add-file">upload image</label>
+                </div>
+                <input required type="text" name='blog-title' placeholder='Title' class='input-blog' value='{{post.title}}'> 
+                 {{#select post.city._id}}
+                   {{#each cities}}
+                       <option value="{{this._id}}">{{this.name}}</option>
+                   {{/each}}
+                {{/select}}
+                <input type="date" name='blog-date' class='input-blog' value='{{post.date}}'> 
+                <button type='submit' id='edit-btn'>Add</button>
+            </form>
+        </div>
+    </div>
+    <img src="/images/blog-back.png" alt="" id='blog-back'>
+</section>

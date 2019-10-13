@@ -5,13 +5,13 @@
             <button id='hamburger'><img src="/images/hamburger.png" alt="menu"></button>
             <ul id='dropdown-content'>
                 <li class='show'><a href="/">Home</a></li>
-                {{#if user}}
-                    <li class='show'><a href="/logout">Logout</a></li>
-                    <li class='show'><a href="/profile">Profile</a></li>
-                {{else}}
-                    <li class='show'><a href="/login">Login</a></li>
-                    <li class='show'><a href="/signup">Sign up</a></li>
-                {{/if}}
+            {{#if user}}
+                <li class='show'><a href="/profile">Profile</a></li>
+                <li class='show'><a href="/logout">Logout</a></li>
+            {{else}}
+                <li class='show'><a href="/login">Login</a></li>
+                <li class='show'><a href="/signup">Sign up</a></li>
+            {{/if}}
                 <li class='show'><a href="/about" id='separate'>About us</a></li>
                 <li class='show'><a href="/contact">Contact</a></li>
             </ul>

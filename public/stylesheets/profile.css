@@ -107,6 +107,73 @@
     flex-direction: column;
 }
 
+@media screen and (min-width: 1024px) { 
+    #profile-box {
+        margin: 180px 0 0 0;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    #about-user {
+        margin: 0 0 0 70px;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        z-index: 1;
+    }
+
+    #profile-img-box {
+        width: 180px;
+        height: 180px;
+        margin: 0 0 30px 0;
+        border: 2px rgb(243, 205, 102) solid;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #profile-img-container {
+        width: 175px;
+        height: 175px;
+        overflow: hidden;
+        border-radius: 50%;
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+    }
+
+    #about-user-box {
+        width: 50%;
+        height: 130px;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+    }
+
+    #user-name {
+        margin: 0; 
+        text-transform: uppercase;
+        font-size: 1.3em;
+        font-weight: 600; 
+     }
+
+     #user-about {
+        margin: 5px 0 0 0;
+        font-size: 0.8em;
+    }
+
+    #edit-profile-icon {
+        width: 40px;
+        height: 40px;
+        background-image: url('/images/edit.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+}
 #journey {
     margin: 0;
     font-size: 1.5em;
@@ -124,11 +191,31 @@
     background-position: center;
 }
 
+@media screen and (min-width: 1024px) { 
+    #journey {
+        margin: 0;
+        font-size: 2.5em;
+        font-family: 'La Belle Aurore', cursive;
+        font-weight: 500;
+    }
+
+    #add-country-icon {
+        margin: 0 0 0 700px;
+        width: 35px;
+        height: 35px;
+        background-image: url('/images/add.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    
+}
+
 #countries-box {
     margin: 10px 0 30px 0;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -206,6 +293,77 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media screen and (min-width: 1024px) { 
+    #country {
+        width: 230px;
+        height: 350px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #stamp1 {
+    width: 190px;
+    height: 280px;
+    margin: 0;
+    background-image: url('/images/stamp.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    -webkit-filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
+    filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    }
+
+    #country-img-container {
+        margin: 0;
+        width: 150px;
+        height: 200px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #country-name {
+        font-size: 1.5em;
+        font-weight: 500;
+        font-family: 'Alegreya Sans SC', sans-serif;
+    }
+
+    #see-btn {
+        margin: 20px 0;
+        width: 100px;
+        height: 65px;
+        background: white;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+        border-radius: 7px;
+        font-size: 0.8em;
+        font-weight: 500;
+        text-decoration: none;
+        color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #edit-country-icon {
+        margin: 2px 0 0 160px;
+        width: 30px;
+        height: 30px;
+        background-image: url('/images/edit.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        z-index: 2;
+        position: relative;
+    }
 }
 
 
