@@ -5,16 +5,18 @@
                 <a href="/profile/country/{{userCountry.id}}" class='back-link' id='back-link'>Back</a>
             </div>
             <h1>ADD GALLERY</h1>
-            <form id='add-gallery-form' action='/{{userCountry.id}}/gallery-add' method='POST' enctype ='multipart/form-data'> 
+            <form id='add-gallery-form' action='/profile/country/{{userCountry.id}}/add-gallery' method='POST' enctype ='multipart/form-data'> 
                 <div id='add-file-box'>
                     <input required type="file" name='image' id="file"/> 
                     <label for="file" id="add-file">upload image</label>
                 </div>
-                <input required type="text" name='blog-title' placeholder='Title' class='input-blog'> 
-                 {{#each cities}}
-                       <option value="{{this._id}}">{{this.name}}</option>
-                {{/each}}
-                <input type="date" name='blog-date' class='input-blog'> 
+                <input required type="text" name='title' placeholder='Title' class='input-blog'/> 
+                <select name="cityId" id="cityId">
+                    {{#each cities}}
+                        <option value="{{this._id}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+                <input type="date" name='date' class='input-blog'/> 
                 <button type='submit' id='edit-btn'>Add</button>
             </form>
         </div>

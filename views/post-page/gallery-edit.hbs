@@ -3,21 +3,23 @@
          <div id='edit-box'>
             <div id='country-edit-btns'>
                 <a href="/profile/country/{{userCountry.id}}" class='back-link' id='back-link'>Back</a>
-                <a href="/profile/delete-gallery" id='country-delete'>delete</a>
+                <a href="/profile/country/{{userCountry.id}}/delete-gallery/{{post.id}}" id='country-delete'>delete</a>
             </div>
             <h1>EDIT GALLERY</h1>
-            <form id='edit-gallery-form' action='/{{userCountry.id}}/gallery-edit/{{post.id}}' method='POST' enctype ='multipart/form-data'> 
+            <form id='edit-gallery-form' action='/profile/country/{{userCountry.id}}/edit-gallery/{{post.id}}' method='POST' enctype ='multipart/form-data'> 
                 <div id='add-file-box'>
-                    <input required type="file" name='image' id="file"/> 
+                    <input type="file" name='image' id="file"/> 
                     <label for="file" id="add-file">upload image</label>
                 </div>
-                <input required type="text" name='blog-title' placeholder='Title' class='input-blog' value='{{post.title}}'> 
-                 {{#select post.city._id}}
+                <input required type="text" name='title' placeholder='Title' class='input-blog' value='{{post.title}}'/> 
+                <select name="cityId" id="cityId">
+                 {{#select post.city.id}}
                    {{#each cities}}
-                       <option value="{{this._id}}">{{this.name}}</option>
+                       <option value="{{this.id}}">{{this.name}}</option>
                    {{/each}}
                 {{/select}}
-                <input type="date" name='blog-date' class='input-blog' value='{{post.date}}'> 
+                </select>
+                <input type="date" name='date' class='input-blog' value='{{post.date}}'/> 
                 <button type='submit' id='edit-btn'>Add</button>
             </form>
         </div>
