@@ -64,11 +64,17 @@
     margin: 15px 0 15px 0;
     width: 90px;
     height: 30px;
-    background: rgb(252, 222, 188);
+    background: rgb(255, 255, 255);
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
     border-radius: 7px;
     font-size: 0.8em;
     font-weight: 500;
+}
+
+#login-btn:hover {
+    cursor: pointer;
+    font-weight: 700;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .signup-link, .reset-link {
@@ -81,10 +87,19 @@
     font-size: 0.8em;
 }
 
+.signup-link a:hover {
+    font-weight: 700;
+}
+
 .reset-link {
     color:  rgb(247, 182, 112);
     font-size: 0.7em;
     margin: 5px 0 20px;
+}
+
+.reset-link a:hover {
+    font-weight: 700;
+    color: orange;
 }
 
 .signup-link a {

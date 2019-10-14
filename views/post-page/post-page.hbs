@@ -22,30 +22,33 @@
                         <img src={{image_URL}} alt="blog-img" id='blog-img'> 
                     </div>
                     <div class='input-box' id='blog-input'>
-                        <div id='blog-title-box'>
-                            <h1 class='blog-title'>{{title}}</h1>
-                            <a href='/profile/country/{{../userCountry.id}}/edit-blog/{{id}}' id='blog-edit-icon'></a> 
-                        </div>
-                        <div id='city-date-box'>
-                            <div class='city-box'>
-                                <img src="/images/location-pin.png" alt="pin" id='pin'>
-                                <p id='city-name'>{{city.name}}</p> 
+                        <div id='blog-content'>
+                            <div id='blog-title-box'>
+                                <h1 class='blog-title'>{{title}}</h1>
+                                <a href='/profile/country/{{../userCountry.id}}/edit-blog/{{id}}' id='blog-edit-icon'></a> 
                             </div>
-                            <div class='date-box'>
-                                <p id='date'>{{date}}</p> 
+                            <div id='city-date-box'>
+                                <div class='city-box'>
+                                    <img src="/images/location-pin.png" alt="pin" id='pin'>
+                                    <p id='city-name'>{{city.name}}</p> 
+                                </div>
+                                <div class='date-box'>
+                                    <p id='date'>{{date}}</p> 
+                                </div>
                             </div>
-                        </div>
-                        <div id='blog-text-box'>
-                            <p id='blog-text'>{{story}}</p> 
+                            <div id='blog-text-box'>
+                                <p id='blog-text'>{{story}}</p> 
+                            </div>
                         </div>
                     </div>
                 </div>
                 {{else}}
                 <div id='gallery-box'>
                     <div id='gallery-title-box'>
-                        <div id='box1'></div>
-                        <div id='box2'>
+                        <div id='box1'>
                             <h1 class='blog-title'>{{title}}</h1>
+                        </div>
+                        <div id='box2'>
                             <a href='/profile/country/{{../userCountry.id}}/edit-gallery/{{id}}' id='blog-edit-icon'></a> 
                         </div>
                     </div>

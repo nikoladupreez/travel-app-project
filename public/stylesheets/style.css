@@ -96,7 +96,7 @@ nav {
     align-items: center;
   }
   
-  #dropdown-content a {   /* shadow box */
+  #dropdown-content a {  
     color: black;
     padding: 10px 0;
     text-decoration: none;
@@ -106,12 +106,10 @@ nav {
     font-size: 0.8em;
   }
 
-  .hide {   /* does not work */
-    display: none;
-}
-
-  #dropdown:hover #dropdown-content {   /* hover does not work, toggle  */
-    display: flex;
+  #dropdown-content a:hover {  
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.9em;
   }
 
   #separate {
@@ -184,4 +182,8 @@ footer a {
     font-size: 0.8em;
     font-weight: 500;
     color: black;
+}
+
+footer a:hover {
+  font-weight: 900;
 }
