@@ -13,8 +13,11 @@ app.get("/signup", (req,res)=> {
 app.post("/signup", (req,res)=> {
     User.findOne({$or: [{username: req.body.username, email: req.body.email}]})
         .then((user)=> {
-            if(user) res.send("User with this email or username already exists")
-            else {
+            if (user){
+                res.render('auth/signup', { errorMessage: 'The username already exists!' });
+                return;
+            }
+
                 bcrypt.hash(req.body.password, 10, function(err, hash) {
                     if(err) res.send(err.message)
                     else {
@@ -45,7 +48,7 @@ app.post("/signup", (req,res)=> {
                         })
                     }
                 })
-            }
+            
         })
 });
 
@@ -57,26 +60,27 @@ app.get("/login", (req,res)=> {
         res.render("auth/login");
 });
 
-app.post("/login", (req,res)=> {
-    debugger;   
+app.post("/login", (req,res)=> { 
     User.findOne({"username": req.body.username})
         .then((user)=> {
-            if(!user) res.json({loggedIn: false})
+            if (!user) {
+                res.render('auth/login', { errorMessage: `The username does not exist.` });
+                return;
+            }
             else {
                 bcrypt.compare(req.body.password, user.password, function(err, equal) {
                     if(err) res.send(err);
-                    else if(!equal) res.json({loggedIn: false});
+                    else if(!equal) res.render('auth/login', { errorMessage: `Incorrect password` });
                     else {
                         req.session.user = user;
                         global.userInfo = user;
-                        // global.loggedIn = true;
                         res.redirect(`/profile`);
                     }
                 });
             }
         })
         .catch(err=> {
-            res.send("error error", err);
+            res.send(err.message);
         })
 });
 

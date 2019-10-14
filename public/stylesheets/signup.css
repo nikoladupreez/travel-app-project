@@ -74,11 +74,17 @@
 #start-btn { /* merge with other btns*/
     width: 80px;
     height: 30px;
-    background: rgb(252, 222, 188);
+    background: rgb(255, 255, 255);
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
     border-radius: 7px;
     font-size: 0.8em;
     font-weight: 500;
+}
+
+#start-btn:hover {
+    cursor: pointer;
+    font-weight: 700;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .login2 {
@@ -90,6 +96,10 @@
 .login2 a{
     text-decoration: underline;
     color: black;
+}
+
+.login2 a:hover {
+    font-weight: 700;
 }
 
 #confirm-signup-view { /* merge with other views*/
@@ -113,6 +123,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+@media screen and (min-width: 500px) {   
+    .confirm-box-sign {
+        width: 384px;
+    }
 }
 
 #confirm-mail {
@@ -140,6 +156,12 @@
     border-radius: 7px;
     font-size: 0.8em;
     font-weight: 500;
+}
+
+.ok-btn:hover {
+    cursor: pointer;
+    font-weight: 700;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .overlay:target {

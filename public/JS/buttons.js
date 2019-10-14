@@ -1,11 +1,13 @@
-// hamburger
-// let hamburger = document.getElementById('dropdown');
-// let dropdown = document.getElementById('dropdown-content');
+const dropdown = document.getElementById('dropdown');
 
-// hamburger.addEventListener('mouseover', function() {
-//     if (dropdown.style.display = 'flex'){
-//       dropdown.style.display = 'none';
-//     } else {
-//       dropdown.style.display = 'flex'
-//     }
-// });
+function toggleHamburger() {
+    const content = document.getElementById('dropdown-content');
+    if (content.style.display === 'none'){
+        content.style.display = 'flex';
+    } else {
+        content.style.display = 'none';
+    }
+};
+
+dropdown.addEventListener('click', toggleHamburger)
+

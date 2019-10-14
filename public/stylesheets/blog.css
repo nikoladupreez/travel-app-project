@@ -50,6 +50,15 @@
         align-items: center;
         position: relative;
     }
+    
+    #blog-country-name {
+        font-family: 'La Belle Aurore', cursive;
+        font-size: 7em;
+        font-weight: 500;
+        z-index: 1;
+        color: rgba(255, 255, 255, 0.8);
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
 }
 
 @media screen and (min-width: 1024px) { 
@@ -60,6 +69,15 @@
         justify-content: center;
         align-items: center;
         position: relative;
+    }
+
+    #blog-country-name {
+        font-family: 'La Belle Aurore', cursive;
+        font-size: 10em;
+        font-weight: 500;
+        z-index: 1;
+        color: rgba(255, 255, 255, 0.8);
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
 }
 
@@ -84,6 +102,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#add-icon-btn:hover {
+    cursor: pointer;
 }
 
 #add-icon-btn img{
@@ -126,6 +148,11 @@
     text-align: left;
     font-size: 0.8em;
   }
+
+  #dropdown-add-content a:hover {
+    cursor: pointer;
+    font-weight: 600;
+}
 
   #dropdown-add:hover #dropdown-add-content {   /* hover does not work, toggle  */
     display: flex;
@@ -170,6 +197,10 @@
     align-items: center;
   }
 
+  #blog-content {
+      margin: 0 0 0 10px;
+  }
+
   #blog-title-box {
       display: flex;
       justify-content: space-between;
@@ -190,6 +221,10 @@
     background-size: cover;
     background-position: center;
   }
+
+  #blog-edit-icon:hover {
+    cursor: pointer;
+}
 
   #city-date-box {
       margin: 0;
@@ -275,7 +310,7 @@
 @media screen and (min-width: 1024px) { 
     #blog-box {
         margin: 0 0 10px 0;
-        width: 100%;
+        width: 921px;
         height: 380px;
         background-color: white;
         box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
@@ -303,13 +338,16 @@
 }
 
 #box1 {
-    width: 40%;
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #box2 {
-    width: 60%;
+    width: 6%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 #gal-img-box {
@@ -341,6 +379,24 @@
     position: fixed;
 }
 
+@media screen and (min-width: 760px) { 
+    #blog-back {
+        width: 100%;
+        bottom: -100px;
+        z-index: -1;
+        position: fixed;
+    }
+}
+
+@media screen and (min-width: 1024px) { 
+    #blog-back {
+        width: 100%;
+        bottom: -300px;
+        z-index: -1;
+        position: fixed;
+    }
+}
+
 /* EDIT/ADD blog/gallery */
 
 #edit-blog-form, #add-blog-form, #add-gallery-form, #edit-gallery-form {
@@ -359,6 +415,12 @@
     background: #FFFFFF;
     box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
+}
+
+@media screen and (min-width: 500px) {   
+    #edit-box {
+        width: 384px;
+    }
 }
 
 @media screen and (min-width: 600px) { 
@@ -410,8 +472,8 @@
 @media screen and (min-width: 1024px) { 
     #gallery-box {
         margin: 0 0 10px 0;
-        width: 80%;
-        height: 480px;
+        width: 737px;
+        height: 520px;
         background-color: white;
         box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
         display: flex;
@@ -422,7 +484,7 @@
 
     #gal-img-box {
         width: 100%;
-        height: 380px;
+        height: 420px;
         overflow: hidden;
         display: flex;
         justify-content: center;

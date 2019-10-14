@@ -1,12 +1,14 @@
 <nav>
     <div id='nav-wrapper'>
         <a href='/' id='logo'></a>
-        <div id='dropdown'>
-            <button id='hamburger'><img src="/images/hamburger.png" alt="menu"></button>
+        <div id='dropdown' onclick='toggleHamburger()'>
+            <button id='hamburger' onclick='toggleHamburger()'><img src="/images/hamburger.png" alt="menu"></button>
             <ul id='dropdown-content'>
                 <li class='show'><a href="/">Home</a></li>
             {{#if user}}
                 <li class='show'><a href="/profile">Profile</a></li>
+                <li class='show'><a href="#">Explore</a></li>
+                <li class='show'><a href="#">Travelers</a></li>
                 <li class='show'><a href="/logout">Logout</a></li>
             {{else}}
                 <li class='show'><a href="/login">Login</a></li>
