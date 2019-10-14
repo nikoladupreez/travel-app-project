@@ -14,9 +14,9 @@ app.post("/signup", (req,res)=> {
     User.findOne({$or: [{username: req.body.username, email: req.body.email}]})
         .then((user)=> {
             if (user){
-                res.render('auth/signup', { errorMessage: 'The username already exists!' });
+                res.render('auth/signup-username-check', { errorMessage: 'The username already exists!' });
                 return;
-            }
+            } 
 
                 bcrypt.hash(req.body.password, 10, function(err, hash) {
                     if(err) res.send(err.message)
@@ -64,13 +64,13 @@ app.post("/login", (req,res)=> {
     User.findOne({"username": req.body.username})
         .then((user)=> {
             if (!user) {
-                res.render('auth/login', { errorMessage: `The username does not exist.` });
+                res.render('auth/login-username-err', { errorMessage: `The username does not exist.` });
                 return;
             }
             else {
                 bcrypt.compare(req.body.password, user.password, function(err, equal) {
                     if(err) res.send(err);
-                    else if(!equal) res.render('auth/login', { errorMessage: `Incorrect password` });
+                    else if(!equal) res.render('auth/login-password-err', { errorMessage: `Incorrect password` });
                     else {
                         req.session.user = user;
                         global.userInfo = user;

@@ -57,6 +57,16 @@ app.use("/", (req,res,next)=> {
   next()
 })
 
+app.use('/login', (req, res, next) => {
+  if(req.session.user) res.redirect('/profile');
+  next()
+})
+
+app.use('/signup', (req, res, next) => {
+  if(req.session.user) res.redirect('/profile');
+  next()
+})
+
 app.use('/', require('./routes/index'));
 app.use('/', require('./routes/auth/auth'));
 app.use('/about', require('./routes/about'));

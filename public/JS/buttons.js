@@ -1,3 +1,5 @@
+//nav
+
 const dropdown = document.getElementById('dropdown');
 
 function toggleHamburger() {
@@ -10,4 +12,13 @@ function toggleHamburger() {
 };
 
 dropdown.addEventListener('click', toggleHamburger)
+
+
+//inputfields
+const usernameField = document.getElementById('username-field');
+const usernameError = document.getElementById('val-username');
+
+function showError(err) {
+    err.style.display = 'block';
+}
 

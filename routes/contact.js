@@ -8,7 +8,6 @@ app.get('/', function(req, res, next) {
 });
 
 app.post('/', function (req, res, next){
-  debugger
   transporter.sendMail({
     from: '"OnTrack" <Ontrack-ironhack@gmail.com>', // sender address
     to: req.body.email, // list of receivers
@@ -25,7 +24,6 @@ app.post('/', function (req, res, next){
     html: `<b>Customer ${req.body.name} has the following concern: <br> ${req.body.note}</b>` // html body
   })
   .then((info)=>{
-    debugger;
     res.redirect("/");
   })
   .catch((err)=> {

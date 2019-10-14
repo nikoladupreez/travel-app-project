@@ -182,6 +182,7 @@
     overflow: hidden;
   }
 
+
   #img-box {
       display: flex;
       justify-content: center;
@@ -407,7 +408,7 @@
     flex-direction: column;
 }
 
-.input-blog {
+.input-blog, #cityId {
     width: 80%;
     margin: 5px 0;
     padding: 0 0 0 20px;
@@ -415,6 +416,22 @@
     background: #FFFFFF;
     box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
+}
+
+#city-label {
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+#cityId {
+   width: 88%;
+   border: none;
+   box-shadow: inset 0px 3px 3px rgba(0, 0, 0, 0.4);
+}
+
+#textarea {
+    border: none;
+    box-shadow: inset 0px 3px 3px rgba(0, 0, 0, 0.4);
 }
 
 @media screen and (min-width: 500px) {   

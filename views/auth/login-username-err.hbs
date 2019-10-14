@@ -6,6 +6,7 @@
             </div>
             <h1 id='welcome'>WELCOME BACK!</h1>
             <form action="/login" method='POST' id='login-form'> 
+                <label class='validation-message' id='val-username'>Username does not exist!</label>
                 <input type="text" name='username' placeholder='Username' class='input-log' id='username-field'>
                 <input type="password" name='password' placeholder='Password' class='input-log'>
                 <button type='submit' id='login-btn'>LOGIN</button>

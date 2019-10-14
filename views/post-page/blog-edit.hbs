@@ -12,8 +12,8 @@
                     <label for="file" id="add-file">upload image</label>
                 </div>
                 <input required type="text" name='title' placeholder='Title' class='input-blog' value='{{post.title}}'/> 
-                <label>City:</label>
-                 <select name='cityId' id="cityId">
+                <label id='city-label'>City:</label>
+                 <select name='cityId' id="cityId" placeholder='City'>
                    {{#select post.city.id}}
                    {{#each cities}}
                        <option value="{{this.id}}">{{this.name}}</option>
