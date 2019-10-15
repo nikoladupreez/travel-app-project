@@ -24,17 +24,6 @@ app.get('/', function(req, res, next) {
       })
 });
 
-// /* GET profile page other travelers. */
-// app.get('/traveler/:id', function(req, res, next) {
-//   User.findById(req.params.id)
-//   .then((user) => {
-//     res.render('profile', {user});
-//   })
-//   .catch((err) => {
-//     res.send(err.message);
-//   })
-// });
-
 /* GET profile edit page. */
 app.get('/:id/edit', function(req, res) {
   User.findById(req.session.user._id)

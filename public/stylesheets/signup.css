@@ -19,7 +19,7 @@
     justify-content: center;
 }
 
-#signup-box { /* merge with other boxes*/
+#signup-box { 
     background-color: white;
     border-radius: 10px;
     width: 85%;
@@ -71,7 +71,7 @@
     align-items: center;
 }
 
-#start-btn { /* merge with other btns*/
+#start-btn { 
     width: 80px;
     height: 30px;
     background: rgb(255, 255, 255);
@@ -102,7 +102,7 @@
     font-weight: 700;
 }
 
-#confirm-signup-view { /* merge with other views*/
+#confirm-signup-view { 
     width: 90%;
     margin: 0;
     position: absolute;
@@ -111,7 +111,7 @@
     align-items: center;
 }
 
-.confirm-box-sign { /* merge with other boxes*/
+.confirm-box-sign { 
     background-color: white;
     border-radius: 10px;
     width: 85%;

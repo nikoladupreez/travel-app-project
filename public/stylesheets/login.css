@@ -16,7 +16,7 @@
     color: red;
 }
 
-#login-view {/* merge with other views*/
+#login-view {
     width: 90%;
     margin: 30px 0 0 0;
     position: absolute;
@@ -24,7 +24,7 @@
     justify-content: center;
 }
 
-#login-box { /* merge with other boxes*/
+#login-box { 
     background-color: white;
     border-radius: 10px;
     width: 85%;
@@ -65,7 +65,7 @@
     border-radius: 5px;
 }
 
-#login-btn { /* merge with other btns*/
+#login-btn { 
     margin: 15px 0 15px 0;
     width: 90px;
     height: 30px;

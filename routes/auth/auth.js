@@ -6,6 +6,7 @@ const transporter = require("../../mailer/mailer");
 var createError = require('http-errors');
 var jwt = require('jsonwebtoken');
 
+//Signup 
 app.get("/signup", (req,res)=> {
     res.render("auth/signup");
 });
@@ -56,6 +57,8 @@ app.get("/signup-confirm", (req,res) => {
     res.render("auth/signup-confirm");
 });
 
+
+//Login
 app.get("/login", (req,res)=> {
         res.render("auth/login");
 });
@@ -84,11 +87,15 @@ app.post("/login", (req,res)=> {
         })
 });
 
+
+//Logout
 app.get("/logout", (req, res)=> {
     req.session.destroy();
     res.redirect("/");
 });
 
+
+//Check email
 app.post("/email-availability", (req,res)=> {
     User.findOne({email: req.body.email})
         .then((user)=> {
@@ -97,6 +104,8 @@ app.post("/email-availability", (req,res)=> {
         })
 });
 
+
+//Reset credentials
 app.get("/get-reset-link", (req,res)=> {
     res.render("auth/reset-link")
 });

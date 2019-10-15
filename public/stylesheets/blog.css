@@ -139,7 +139,7 @@
     list-style: none;
   }
   
-  #dropdown-add-content a {   /* shadow box */
+  #dropdown-add-content a {  
     color: black;
     padding: 10px 0;
     text-decoration: none;
@@ -154,7 +154,7 @@
     font-weight: 600;
 }
 
-  #dropdown-add:hover #dropdown-add-content {   /* hover does not work, toggle  */
+  #dropdown-add:hover #dropdown-add-content {   
     display: flex;
   }
   
